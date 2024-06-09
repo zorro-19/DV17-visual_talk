@@ -1,0 +1,4 @@
+NUM_d.png|G:/客户/可视对讲IPC/dev_visualtalk/dev/ac57_sdk/UI工程/ui_240_320_key_ipc/模式界面/project/config/pic_color_LY/480P/num/NUM_d.pngbaskslash equal zero else
+config/pic_color_LY/480P/num/NUM_d.png
+NUM_dd.png|G:/客户/可视对讲IPC/dev_visualtalk/dev/ac57_sdk/UI工程/ui_240_320_key_ipc/模式界面/project/config/pic_color_LY/480P/num/NUM_dd.pngbaskslash equal zero else
+config/pic_color_LY/480P/num/NUM_dd.png

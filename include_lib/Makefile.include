@@ -1,0 +1,16 @@
+
+export includes += \
+-I$(ROOT)/include_lib \
+-I$(ROOT)/include_lib/system \
+-I$(ROOT)/include_lib/system/cpu/$(CPU) \
+-I$(ROOT)/include_lib/system/generic \
+-I$(ROOT)/include_lib/system/device \
+-I$(ROOT)/include_lib/system/fs \
+-I$(ROOT)/include_lib/update \
+-I$(ROOT)/include_lib/common \
+-I$(ROOT)/include_lib/server \
+-I$(ROOT)/include_lib/ui \
+-I$(ROOT)/include_lib/ui/res \
+
+
+

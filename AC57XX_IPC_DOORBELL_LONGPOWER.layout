@@ -1,0 +1,1180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Release" />
+	<File name="include_lib\system\device\uart.h" open="0" top="0" tabpos="98" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="274" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\server\video_engine_server.h" open="0" top="0" tabpos="134" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1187" topLine="46" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\qrcode.h" open="0" top="0" tabpos="100" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="752" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="include_lib\server\video_server.h" open="1" top="0" tabpos="112" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5732" topLine="228" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\wifi_app_task.c" open="1" top="0" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="36653" topLine="1308" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\board\board_dev_wifi_5712_20210316.c" open="0" top="0" tabpos="108" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="485" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\net\avsdk\xciot_cmd_ipc.h" open="1" top="0" tabpos="59" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="58770" topLine="1881" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\video_photo.c" open="1" top="0" tabpos="85" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="20696" topLine="745" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\device\sdio_host_init.h" open="0" top="0" tabpos="36" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="665" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\board\board_dev_wifi_5713_20230825.c" open="1" top="0" tabpos="138" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3619" topLine="135" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\network_mssdp.c" open="1" top="0" tabpos="108" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4456" topLine="157" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\cloud_interface\cloud_rt_talk.c" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="38944" topLine="1245" />
+		</Cursor>
+	</File>
+	<File name="camera\sc2336p_mipi_x\sc2336p_mipi_awb.c" open="1" top="0" tabpos="110" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1808" topLine="53" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\stream\video_rt_usr.c" open="1" top="0" tabpos="31" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3535" topLine="97" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\app_database.c" open="1" top="0" tabpos="117" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="555" topLine="20" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\avsdk\ut_lowpower_cmd.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="24675" topLine="800" />
+		</Cursor>
+	</File>
+	<File name="apps\demos\usb_host_user.c" open="1" top="0" tabpos="88" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="42076" topLine="1182" />
+		</Cursor>
+	</File>
+	<File name="include_lib\ui\ui\ui.h" open="1" top="0" tabpos="122" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1001" topLine="21" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\adkey.c" open="1" top="0" tabpos="134" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="394" topLine="28" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\simple_mov_unpkg.c" open="1" top="0" tabpos="101" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7578" topLine="287" />
+		</Cursor>
+	</File>
+	<File name="apps\fontinit.c" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1115" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\power_inf.h" open="0" top="0" tabpos="74" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="588" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_ILI9806.c" open="1" top="0" tabpos="131" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="255" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\network_upgrade.c" open="1" top="0" tabpos="61" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="318" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\style_JL02\ui_action_sys.c" open="1" top="0" tabpos="96" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="41800" topLine="1361" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\dsi_vdo_1lane_st7785M.c" open="0" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5708" topLine="204" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\isp_dev.h" open="0" top="0" tabpos="66" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8977" topLine="234" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\vrec_osd.h" open="0" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="40413" topLine="413" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\auto_test.c" open="1" top="0" tabpos="69" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="21798" topLine="888" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\style_LY\ui_action_rec.c" open="1" top="0" tabpos="103" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="105299" topLine="3832" />
+		</Cursor>
+	</File>
+	<File name="apps\debug.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="268" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\common\product_test_tool\product_main.c" open="1" top="0" tabpos="52" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9399" topLine="216" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\ctp_cmd.c" open="1" top="0" tabpos="97" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7253" topLine="248" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\doorbell\irled_ctrl.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2712" topLine="213" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\hi3861L_task.c" open="1" top="0" tabpos="65" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9086" topLine="339" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\avsdk\ut_dev_ipc_cmd.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="38179" topLine="1000" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\wifi-tools\rtw_cache.c" open="1" top="0" tabpos="82" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7637" topLine="85" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\usb_host_user.c" open="1" top="0" tabpos="109" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="42363" topLine="1193" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\board\board_dev_wifi_5713_20221027.c" open="0" top="0" tabpos="70" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="39294" topLine="1584" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\backlight.c" open="1" top="0" tabpos="79" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5582" topLine="173" />
+		</Cursor>
+	</File>
+	<File name="include_lib\ui\ui\ui_time.h" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="225" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\cloud_interface\cloud_playback_list.c" open="1" top="0" tabpos="53" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="48590" topLine="1515" />
+		</Cursor>
+	</File>
+	<File name="camera\GC1084_DVP_MIPI\GC1084_DVP.c" open="0" top="0" tabpos="52" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10303" topLine="561" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\board.h" open="0" top="0" tabpos="73" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="228" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\video_playback.c" open="0" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="944" topLine="27" />
+		</Cursor>
+	</File>
+	<File name="camera\GC1084_DVP_MIPI\GC1084_DVP_awb.c" open="0" top="0" tabpos="76" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="44" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="camera\tp9930\tp9930.c" open="0" top="0" tabpos="54" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3059" topLine="176" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\dsi_dcs_1lane_16bit.c" open="0" top="0" tabpos="48" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1173" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\style_JL02\ui_action_rec.c" open="1" top="0" tabpos="118" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="41059" topLine="1308" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\isp_alg.h" open="0" top="0" tabpos="75" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4310" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\imd.h" open="0" top="0" tabpos="127" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2289" topLine="84" />
+		</Cursor>
+	</File>
+	<File name="apps\common\product_test_tool\includes\product_main.h" open="1" top="0" tabpos="58" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2162" topLine="41" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\wait.h" open="1" top="0" tabpos="137" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="232" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\common\product_test_tool\product_port.c" open="1" top="0" tabpos="43" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17322" topLine="552" />
+		</Cursor>
+	</File>
+	<File name="apps\demos\aecfix_test.c" open="1" top="0" tabpos="37" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11741" topLine="457" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\ftpd_vfs_reg.c" open="1" top="0" tabpos="91" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="503" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\doorbell\doorbell_app.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="36607" topLine="1125" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\video_dec.h" open="0" top="0" tabpos="48" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="641" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="include_lib\net\wifi_module\wifi_ext.h" open="0" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="609" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\avsdk\ut_dev_ipc_cmd.h" open="1" top="0" tabpos="68" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="15939" topLine="443" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\crc16.h" open="1" top="0" tabpos="89" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="349" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\wifi-tools\WL_STA_CONF.c" open="0" top="0" tabpos="107" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\ui\ui\ui_core.h" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="373" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\setup.c" open="1" top="0" tabpos="54" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6942" topLine="299" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\device\lcd_driver.h" open="0" top="0" tabpos="81" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="662" topLine="16" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\board\board_dev_wifi_5713_20210317.c" open="0" top="0" tabpos="69" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="32269" topLine="1342" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\stream\video_rt_tcp.c" open="1" top="0" tabpos="98" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7972" topLine="356" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\video_system.c" open="1" top="0" tabpos="106" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="529" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_ST7789S.c" open="0" top="0" tabpos="73" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8607" topLine="342" />
+		</Cursor>
+	</File>
+	<File name="camera\gc2053_mipi\gc2053_mipi.c" open="1" top="0" tabpos="76" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="138" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\uart_update\dev_update.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3164" topLine="91" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\gsensor\da380.c" open="0" top="0" tabpos="28" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="81" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\ui\ui\ui_browser.h" open="1" top="0" tabpos="146" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="462" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\adc.c" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1494" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\imd_common.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="456" topLine="19" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\style_JL02\ui_action_dec.c" open="1" top="0" tabpos="123" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="47960" topLine="1478" />
+		</Cursor>
+	</File>
+	<File name="apps\common\face_detect\face_icon.c" open="0" top="0" tabpos="136" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9994" topLine="267" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\style_LY\ui_action_dec.c" open="1" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="52340" topLine="1689" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\dsi_vdo_2lane_1280x480_EK79030.c" open="1" top="0" tabpos="119" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="92" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\cxx_runtime.cpp" open="1" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="149" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\generic\log.h" open="1" top="0" tabpos="71" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="353" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\include\stream_core.h" open="0" top="0" tabpos="109" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="723" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="apps\demos\aac_enc_test.c" open="1" top="0" tabpos="115" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2477" topLine="70" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\doorbell\usb_cdc_user.c" open="1" top="0" tabpos="34" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16415" topLine="576" />
+		</Cursor>
+	</File>
+	<File name="include_lib\server\server_core.h" open="1" top="0" tabpos="99" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="876" topLine="28" />
+		</Cursor>
+	</File>
+	<File name="camera\pr2000\pr2000k.c" open="1" top="0" tabpos="75" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6053" topLine="248" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\video_rec_cfg.c" open="0" top="0" tabpos="73" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\net_video_rec.c" open="1" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="114082" topLine="3768" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\cloud_interface\cloud_storage.c" open="1" top="0" tabpos="42" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="32365" topLine="834" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\board\board_dev_wifi_5702_20190809.c" open="0" top="0" tabpos="68" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="24901" topLine="993" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\video_audio.c" open="1" top="0" tabpos="105" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6274" topLine="211" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_LYWS030GQ.c" open="1" top="0" tabpos="132" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="479" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\action.h" open="1" top="0" tabpos="141" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1089" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="camera\GC1084_DVP_MIPI\GC1084_DVP_awb.h" open="0" top="0" tabpos="77" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="249" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\uart.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="898" topLine="19" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\uart_update\uart_update_master.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8744" topLine="322" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\app_main.c" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="165" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\dsi_vdo_2lane_bs_t40_l4.c" open="0" top="0" tabpos="122" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="242" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_HX8369A_SPI_RGB.c" open="1" top="0" tabpos="126" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5578" topLine="222" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\style_JL02\ui_action_main.c" open="1" top="0" tabpos="148" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="19266" topLine="591" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\mipi_lcd_1280x480.c" open="0" top="0" tabpos="45" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="614" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\usb_app.c" open="1" top="0" tabpos="49" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17490" topLine="664" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\dsi_vdo_2lane_st7701s.c" open="0" top="0" tabpos="43" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8523" topLine="199" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\event.h" open="1" top="0" tabpos="136" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1059" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="apps\common\face_detect\face_detect.h" open="0" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1058" topLine="32" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\style_LY\ui_action_sys.c" open="1" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7652" topLine="349" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\dsi_dcs_1lane_wt400x400.c" open="1" top="0" tabpos="63" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="123" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\dsi.h" open="0" top="0" tabpos="50" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1873" topLine="40" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\get_image_data.c" open="1" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4611" topLine="143" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\user_isp_cfg.c" open="1" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11955" topLine="433" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\include\usb_cam_h264.h" open="0" top="0" tabpos="123" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1304" topLine="43" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\user_isp_cfg.h" open="1" top="0" tabpos="51" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="736" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\doorbell_event.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1069" topLine="31" />
+		</Cursor>
+	</File>
+	<File name="include_lib\net\avsdk\xciot_cmd_common.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1732" topLine="25" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\video_system_cfg.c" open="1" top="0" tabpos="90" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1144" topLine="65" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\uart_update\spec_uart.c" open="1" top="0" tabpos="104" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2782" topLine="76" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_480x272_18bits.c" open="1" top="0" tabpos="129" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\avsdk\xc_log.h" open="0" top="0" tabpos="66" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="15261" topLine="513" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\spec_uart_test.c" open="1" top="0" tabpos="111" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1421" topLine="55" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\app_database.h" open="0" top="0" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="include_lib\ui\ui\ui_text.h" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="975" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\cloud_interface\cloud_playback.c" open="1" top="0" tabpos="74" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6137" topLine="193" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\device\camera.h" open="0" top="0" tabpos="67" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="513" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="apps\demos\test_audio.c" open="0" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4556" topLine="156" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\ladc.h" open="0" top="0" tabpos="59" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="945" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\spinlock.h" open="0" top="0" tabpos="84" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="720" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_HX8369A_MCU.c" open="0" top="0" tabpos="84" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="236" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\play_usb_mic.c" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3923" topLine="178" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\os\os_compat.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1540" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\dv17.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8972" topLine="134" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\play_usb_speaker.c" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3447" topLine="112" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\iokey.c" open="1" top="0" tabpos="135" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1290" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\generic\ascii.h" open="0" top="0" tabpos="90" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="208" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\usb_cam_h264.c" open="1" top="0" tabpos="47" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5578" topLine="162" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\os\os_api.h" open="1" top="0" tabpos="144" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3319" topLine="123" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\upgrade.c" open="1" top="0" tabpos="45" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17769" topLine="711" />
+		</Cursor>
+	</File>
+	<File name="apps\cpp_run_init.c" open="1" top="0" tabpos="125" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="345" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\generic\gpio.h" open="1" top="0" tabpos="40" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="123" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\include\packet.h" open="1" top="0" tabpos="94" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="445" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\fs\fs.h" open="1" top="0" tabpos="83" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4329" topLine="162" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\storage_device.h" open="0" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\net\avsdk\xciot_type.h" open="1" top="0" tabpos="67" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9673" topLine="322" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\power_inf.c" open="0" top="0" tabpos="60" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1863" topLine="57" />
+		</Cursor>
+	</File>
+	<File name="include_lib\net\server\net_server.h" open="1" top="0" tabpos="116" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1011" topLine="56" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\video_rec.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="194226" topLine="6462" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\cpu.h" open="0" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="140" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\board\board_doorbell_wifi_5713_20220325.c" open="1" top="0" tabpos="113" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="29344" topLine="1210" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\strm_video_rec.c" open="0" top="0" tabpos="52" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2879" topLine="101" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\cloud_interface\cloud_sleep.c" open="1" top="0" tabpos="39" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="493" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="camera\tp2850\tp2850.c" open="0" top="0" tabpos="54" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1810" topLine="71" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\media_file_list.c" open="1" top="0" tabpos="56" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1499" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\video_dec.c" open="1" top="0" tabpos="28" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="18335" topLine="652" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\board\lp_board_dev_wifi_5713_20240326.c" open="1" top="0" tabpos="38" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="23787" topLine="1002" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\app_config.h" open="1" top="1" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14088" topLine="303" />
+		</Cursor>
+	</File>
+	<File name="apps\demos\play_usb_speaker.c" open="1" top="0" tabpos="81" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="303" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_480x272_8bits.c" open="1" top="0" tabpos="128" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="590" topLine="54" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\mipi_lcd_1920x380_OTA7290B.c" open="0" top="0" tabpos="47" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="261" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\stream\stream_core.c" open="0" top="0" tabpos="110" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1835" topLine="59" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_480x272.c" open="1" top="0" tabpos="130" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="48" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\board\board_dev_wifi_5713_20210901.c" open="0" top="0" tabpos="71" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="31562" topLine="1298" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\parking_detect.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2692" topLine="84" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\style_JL02\ui_action_usb.c" open="0" top="0" tabpos="78" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1115" topLine="21" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\dsi_vdo_2lane_gc9503v_640x360_rgh_rt30hd033a.c" open="0" top="0" tabpos="58" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6148" topLine="123" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\device\video\video_ioctl.h" open="0" top="0" tabpos="125" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6545" topLine="136" />
+		</Cursor>
+	</File>
+	<File name="apps\common\product_test_tool\devices_control.c" open="1" top="0" tabpos="78" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="29" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\doorbell\doorbell_event.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2841" topLine="120" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\user_scr_cfg.c" open="1" top="0" tabpos="55" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="259" topLine="93" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\user_scr_tool.c" open="1" top="0" tabpos="48" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4645" topLine="128" />
+		</Cursor>
+	</File>
+	<File name="include_lib\net\avsdk\xc_cs_type.h" open="1" top="0" tabpos="145" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3614" topLine="77" />
+		</Cursor>
+	</File>
+	<File name="apps\common\chip_test\audio_test.c" open="1" top="0" tabpos="73" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1560" topLine="70" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\device\usb.h" open="0" top="0" tabpos="154" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9396" topLine="318" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\app_core.h" open="1" top="0" tabpos="121" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1226" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\video_rec.h" open="1" top="0" tabpos="84" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2825" topLine="105" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\init.h" open="0" top="0" tabpos="65" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="278" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\net\wifi_module\wifi_module_event.h" open="0" top="0" tabpos="99" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="487" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\adkey.h" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="381" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\version.c" open="0" top="0" tabpos="114" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="448" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\cloud_interface\cloud_net_config.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6423" topLine="208" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\device\iokey.h" open="0" top="0" tabpos="67" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="261" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="camera\bg0806_mipi\bg0806_mipi.c" open="0" top="0" tabpos="69" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="23881" topLine="820" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\ch9.h" open="0" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="30029" topLine="896" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\cloud_interface\cloud_faststart.c" open="1" top="0" tabpos="36" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1590" topLine="43" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\device\audio_dev.h" open="1" top="0" tabpos="114" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="615" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_LX50FWB4001_V2.c" open="1" top="0" tabpos="133" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12984" topLine="610" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\wifi-tools\RTL_PHY_REG_PG.c" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="347" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\stream\video_rt_udp.c" open="1" top="0" tabpos="142" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="956" topLine="2" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\device_mount.c" open="1" top="0" tabpos="100" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2045" topLine="81" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\board\xd_board_dev_wifi_5713_20231208.c" open="1" top="0" tabpos="35" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2101" topLine="87" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\mipi_lcd_1280x400_wt.c" open="0" top="0" tabpos="46" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="532" topLine="63" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\style_LY\ui_action_photo.c" open="1" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9553" topLine="387" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\timer.h" open="1" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1807" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\mortor_control_driver.c" open="1" top="0" tabpos="50" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="23715" topLine="821" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\gpio.h" open="1" top="0" tabpos="41" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\common\product_test_tool\communication.c" open="1" top="0" tabpos="57" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1147" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\ui_action_animation.c" open="1" top="0" tabpos="86" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="68" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\dsi_dcs_1lane_24bit.c" open="0" top="0" tabpos="49" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="707" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\common\face_detect\face_detect_app.c" open="1" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6088" topLine="162" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\database.h" open="0" top="0" tabpos="79" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="144" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\demos\play_usb_mic.c" open="1" top="0" tabpos="80" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2938" topLine="92" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\touch_panel_manager.h" open="1" top="0" tabpos="147" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="837" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\generic\printf.h" open="1" top="0" tabpos="72" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="352" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\style_ly.h" open="1" top="0" tabpos="143" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14320" topLine="462" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\device\vm.h" open="1" top="0" tabpos="124" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1522" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\generic\typedef.h" open="0" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3126" topLine="100" />
+		</Cursor>
+	</File>
+	<File name="include_lib\net\server\wifi_connect.h" open="1" top="0" tabpos="107" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2884" topLine="90" />
+		</Cursor>
+	</File>
+	<File name="include_lib\net\server\rt_stream_pkg.h" open="1" top="0" tabpos="66" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="208" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\wifi-tools\iperf_test.c" open="0" top="0" tabpos="31" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1757" topLine="46" />
+		</Cursor>
+	</File>
+	<File name="include_lib\common\common.h" open="0" top="0" tabpos="130" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1150" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\video_photo_cfg.c" open="1" top="0" tabpos="46" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3443" topLine="60" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\wifi-tools\ap_config.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="55" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="camera\sc2336p_mipi_x\sc2336p_mipi.c" open="1" top="0" tabpos="77" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11217" topLine="436" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\avsdk\ut_xciot.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="19157" topLine="549" />
+		</Cursor>
+	</File>
+	<File name="camera\gc2053_mipi\gc2053_mipi.h" open="0" top="0" tabpos="81" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="197" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\packet.c" open="1" top="0" tabpos="93" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="226" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\usb_app_cfg.c" open="0" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="722" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_HX9225_MCU.c" open="1" top="0" tabpos="127" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5285" topLine="204" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\board\board_dev_wifi_5701_20190809.c" open="1" top="0" tabpos="70" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1139" topLine="40" />
+		</Cursor>
+	</File>
+	<File name="apps\flash_write_protect.c" open="1" top="0" tabpos="62" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="912" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_ST7789P3_MCU.c" open="1" top="0" tabpos="102" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11124" topLine="512" />
+		</Cursor>
+	</File>
+	<File name="camera\GC1084_DVP_MIPI\GC1084_DVP.h" open="0" top="0" tabpos="69" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="86" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_virtual.c" open="0" top="0" tabpos="126" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2184" topLine="53" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\lcd_config.h" open="1" top="0" tabpos="64" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3081" topLine="108" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\key_voice.c" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="50837" topLine="545" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\mipi_lcd_driver\dsi_vdo_4lane_1280x480_EK79030.c" open="1" top="0" tabpos="120" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4347" topLine="96" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\generic\list.h" open="1" top="0" tabpos="95" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4789" topLine="123" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\DV17\asm\dac.h" open="1" top="0" tabpos="140" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="766" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\user_scr_draw.c" open="0" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="554" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\ui\style_LY\ui_action_usb.c" open="0" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="839" topLine="48" />
+		</Cursor>
+	</File>
+	<File name="cpu\DV17\dvp_lcd_driver\lcd_vga.c" open="0" top="0" tabpos="128" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2684" topLine="75" />
+		</Cursor>
+	</File>
+	<File name="apps\demos\aac_dec_test.c" open="1" top="0" tabpos="87" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1605" topLine="53" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\cloud_interface\cloud_utc_time.c" open="1" top="0" tabpos="92" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5789" topLine="159" />
+		</Cursor>
+	</File>
+	<File name="apps\demos\mpu_test.c" open="1" top="0" tabpos="44" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3079" topLine="97" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\wifi\cloud_interface\cloud_upgrade.c" open="1" top="0" tabpos="60" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="26843" topLine="800" />
+		</Cursor>
+	</File>
+	<File name="apps\ipc_doorbell\include\style.h" open="1" top="0" tabpos="139" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="749" topLine="2" />
+		</Cursor>
+	</File>
+	<File name="include_lib\net\avsdk\xciot_api.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5629" topLine="158" />
+		</Cursor>
+	</File>
+</CodeBlocks_layout_file>

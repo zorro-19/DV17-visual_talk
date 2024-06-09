@@ -1,0 +1,334 @@
+# depslib dependency file v1.0
+1632475785 source:e:\dv17\dv17_release\lib\net\websrv\analysis.c
+	"websrv_io.h"
+	"misc.h"
+
+1632475796 e:\dv17\dv17_release\lib\net\websrv\include\websrv_io.h
+	"websrv_http.h"
+
+1632475939 e:\dv17\dv17_release\lib\net\websrv\websrv_http.h
+	"list.h"
+	"os/os_api.h"
+	"wrhash.h"
+	"misc.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\generic\list.h
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\os_api.h
+	"generic/typedef.h"
+	"os/os_cpu.h"
+	"os/os_error.h"
+	"os/os_type.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\generic\typedef.h
+	"asm/cpu.h"
+	"generic/errno-base.h"
+	"string.h"
+	"system/malloc.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\cpu\dv17\asm\cpu.h
+	"dv17.h"
+	"csfr.h"
+	"asm/irq.h"
+	"printf.h"
+	"system/generic/log.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\cpu\dv17\asm\dv17.h
+
+1631240473 e:\dv17\dv17_release\include_lib\system\cpu\dv17\asm\csfr.h
+
+1631240473 e:\dv17\dv17_release\include_lib\system\cpu\dv17\asm\irq.h
+	"asm/hwi.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\cpu\dv17\asm\hwi.h
+	"typedef.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\generic\printf.h
+	<stdarg.h>
+	"typedef.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\generic\log.h
+	"system/generic/printf.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\generic\errno-base.h
+
+1631240473 e:\dv17\dv17_release\include_lib\system\malloc.h
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\os_cpu.h
+	"asm/cpu.h"
+	"jiffies.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\generic\jiffies.h
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\os_error.h
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\os_type.h
+	<os/ucos_ii.h>
+	"FreeRTOS/FreeRTOS.h"
+	"FreeRTOS/semphr.h"
+	"FreeRTOS/task.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\ucos_ii.h
+	"typedef.h"
+	"os/os_cpu.h"
+	"os/os_cfg.h"
+	"os/os_api.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\os_cfg.h
+	"os/os_cpu.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\freertos.h
+	"FreeRTOSConfig.h"
+	"projdefs.h"
+	"portable.h"
+	<reent.h>
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\freertosconfig.h
+	"pi32v2/portmacro.h"
+	"printf.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\pi32v2\portmacro.h
+	"asm/cpu.h"
+	<stdint.h>
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\projdefs.h
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\portable.h
+	"deprecated_definitions.h"
+	"portmacro.h"
+	"mpu_wrappers.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\deprecated_definitions.h
+	"..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h"
+	"..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h"
+	"../portable/GCC/ATMega323/portmacro.h"
+	"../portable/IAR/ATMega323/portmacro.h"
+	"../../Source/portable/MPLAB/PIC24_dsPIC/portmacro.h"
+	"../../Source/portable/MPLAB/PIC24_dsPIC/portmacro.h"
+	"../../Source/portable/MPLAB/PIC18F/portmacro.h"
+	"../../Source/portable/MPLAB/PIC32MX/portmacro.h"
+	"libFreeRTOS/Include/portmacro.h"
+	"../../Source/portable/SDCC/Cygnal/portmacro.h"
+	"../../Source/portable/GCC/ARM7_LPC2000/portmacro.h"
+	"portmacro.h"
+	"../../Source/portable/GCC/ARM7_LPC23xx/portmacro.h"
+	"..\..\Source\portable\IAR\MSP430\portmacro.h"
+	"../../Source/portable/GCC/MSP430F449/portmacro.h"
+	"../../Source/portable/Rowley/MSP430F449/portmacro.h"
+	"..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h"
+	"../../Source/portable/GCC/ARM7_AT91SAM7S/portmacro.h"
+	"..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h"
+	"..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h"
+	"..\..\Source\portable\IAR\LPC2000\portmacro.h"
+	"..\..\Source\portable\IAR\STR71x\portmacro.h"
+	"..\..\Source\portable\IAR\STR75x\portmacro.h"
+	"..\..\Source\portable\GCC\STR75x\portmacro.h"
+	"..\..\Source\portable\IAR\STR91x\portmacro.h"
+	"../../Source/portable/GCC/H8S2329/portmacro.h"
+	"../../Source/portable/GCC/ARM7_AT91FR40008/portmacro.h"
+	"../../Source/portable/RVDS/ARM_CM3/portmacro.h"
+	"../../Source/portable/GCC/ARM_CM3/portmacro.h"
+	"../../Source/portable/GCC/ARM_CM3/portmacro.h"
+	"../../Source/portable/IAR/ARM_CM3/portmacro.h"
+	"../../Source/portable/IAR/ARM_CM3/portmacro.h"
+	"../../Source/portable/CodeWarrior/HCS12/portmacro.h"
+	"../../Source/portable/GCC/MicroBlaze/portmacro.h"
+	"..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h"
+	"../../Source/portable/GCC/HCS12/portmacro.h"
+	"../../Source/portable/GCC/MCF5235/portmacro.h"
+	"../../../Source/portable/GCC/ColdFire_V2/portmacro.h"
+	"../../Source/portable/CodeWarrior/ColdFire_V2/portmacro.h"
+	"../../Source/portable/GCC/PPC405_Xilinx/portmacro.h"
+	"../../Source/portable/GCC/PPC440_Xilinx/portmacro.h"
+	"..\..\Source\portable\Softune\MB96340\portmacro.h"
+	"frconfig.h"
+	"..\portable\BCC\16BitDOS\PC\prtmacro.h"
+	"frconfig.h"
+	"..\portable\BCC\16BitDOS\flsh186\prtmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/78K0R/portmacro.h"
+	"../../Source/portable/IAR/78K0R/portmacro.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\mpu_wrappers.h
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\semphr.h
+	"queue.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\queue.h
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\task.h
+	"list.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\freertos\list.h
+
+1632467630 e:\dv17\dv17_release\lib\net\websrv\wrhash.h
+	"wrstring.h"
+	"wrmpool.h"
+
+1632467650 e:\dv17\dv17_release\lib\net\websrv\wrstring.h
+
+1632467642 e:\dv17\dv17_release\lib\net\websrv\wrmpool.h
+
+1632475972 e:\dv17\dv17_release\lib\net\websrv\include\misc.h
+	"http.h"
+	"wrstring.h"
+
+1632467673 e:\dv17\dv17_release\lib\net\websrv\include\http.h
+	"mg_compat.h"
+	"wrhash.h"
+
+1632467464 e:\dv17\dv17_release\lib\net\websrv\mg_compat.h
+	<stdarg.h>
+	"lwip/sockets.h"
+	"os/os_api.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\sockets.h
+	"lwip/opt.h"
+	"lwip/ip_addr.h"
+	"lwip/err.h"
+	"lwip/inet.h"
+	"lwip/_errno.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\opt.h
+	"lwipopts.h"
+	"lwip/debug.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\port\lwipopts.h
+	<errno.h>
+	"sys/time.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\debug.h
+	"lwip/arch.h"
+	"lwip/opt.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\arch.h
+	"asm/cpu.h"
+	"arch/cc.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdint.h>
+	<inttypes.h>
+	<limits.h>
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\port\arch\cc.h
+	"arch/cpu.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\port\arch\cpu.h
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\ip_addr.h
+	"lwip/opt.h"
+	"lwip/def.h"
+	"lwip/ip4_addr.h"
+	"lwip/ip6_addr.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\def.h
+	"lwip/arch.h"
+	"lwip/opt.h"
+	"arch/perf.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\port\arch\perf.h
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\ip4_addr.h
+	"lwip/opt.h"
+	"lwip/def.h"
+	"arch/bpstruct.h"
+	"arch/epstruct.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\ip6_addr.h
+	"lwip/opt.h"
+	"def.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\err.h
+	"lwip/opt.h"
+	"lwip/arch.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\inet.h
+	"lwip/opt.h"
+	"lwip/def.h"
+	"lwip/ip_addr.h"
+	"lwip/ip6_addr.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\_errno.h
+	"lwip/opt.h"
+
+1632475812 source:e:\dv17\dv17_release\lib\net\websrv\cgi_test\cgi.c
+	"websrv_io.h"
+	"misc.h"
+	"http.h"
+	"wrio.h"
+	<stdlib.h>
+
+1632475499 e:\dv17\dv17_release\lib\net\websrv\include\wrio.h
+	"http.h"
+
+1632452544 source:e:\dv17\dv17_release\lib\net\websrv\cgi_test\favicon_ico.c
+
+1632452578 source:e:\dv17\dv17_release\lib\net\websrv\cgi_test\index_html.c
+
+1632467340 source:e:\dv17\dv17_release\lib\net\websrv\cgi_test\jquery_min_js.c
+
+1632475989 source:e:\dv17\dv17_release\lib\net\websrv\http.c
+	"websrv_http.h"
+	"wrhash.h"
+	"websrv_io.h"
+	"sock_api.h"
+	"os/os_compat.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\app\sock_api\sock_api.h
+	"lwip/sockets.h"
+	"lwip/netdb.h"
+	"os/os_compat.h"
+	"list.h"
+	"string.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\net\lwip\src\include\lwip\netdb.h
+	"lwip/opt.h"
+	"lwip/arch.h"
+	"lwip/inet.h"
+	"lwip/sockets.h"
+
+1631240473 e:\dv17\dv17_release\include_lib\system\os\os_compat.h
+	"os_api.h"
+
+1632476007 source:e:\dv17\dv17_release\lib\net\websrv\misc.c
+	<stdarg.h>
+	"printf.h"
+
+1632476044 source:e:\dv17\dv17_release\lib\net\websrv\request.c
+	"wrstring.h"
+	"websrv_io.h"
+	"sock_api.h"
+	"analysis.h"
+
+1632467453 e:\dv17\dv17_release\lib\net\websrv\analysis.h
+	"http.h"
+
+1632467389 source:e:\dv17\dv17_release\lib\net\websrv\wrhash.c
+	<string.h>
+	"wrhash.h"
+
+1632477152 source:e:\dv17\dv17_release\lib\net\websrv\wrio.c
+	"websrv_io.h"
+	"wrstring.h"
+	"sock_api/sock_api.h"
+	"stdlib.h"
+
+1632467425 source:e:\dv17\dv17_release\lib\net\websrv\wrmpool.c
+	<stdlib.h>
+	"wrmpool.h"
+
+1632467433 source:e:\dv17\dv17_release\lib\net\websrv\wrstring.c
+	<string.h>
+	<ctype.h>
+

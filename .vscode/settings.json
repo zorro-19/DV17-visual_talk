@@ -1,0 +1,32 @@
+{
+    "files.associations": {
+        "dv17.h": "c",
+        "video_rec.h": "c",
+        "app_config.h": "c",
+        "inet.h": "c",
+        "wifi_dev.h": "c",
+        "timer.h": "c",
+        "iterator": "c",
+        "typeinfo": "c",
+        "__functional_base": "c",
+        "__functional_base_03": "c",
+        "__tuple": "c",
+        "type_traits": "c",
+        "limits": "c",
+        "memory": "c",
+        "tuple": "c",
+        "utility": "c",
+        "gpio.h": "c",
+        "typedef.h": "c",
+        "font_sdfs.h": "c",
+        "product_main.h": "c",
+        "crc16.h": "c",
+        "md5.h": "c",
+        "includes.h": "c",
+        "json_object.h": "c",
+        "video_system.h": "c",
+        "init.h": "c",
+        "os_compat.h": "c"
+    },
+    "cmake.sourceDirectory": "G:/客户/可视对讲IPC/dev_visualtalk/dev/ac57_sdk/lib/net/mbedtls/tests"
+}

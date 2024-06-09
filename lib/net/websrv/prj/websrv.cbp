@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="websrv" />
+		<Option pch_mode="2" />
+		<Option compiler="pi32" />
+		<Build>
+			<Target title="Release">
+				<Option output="../../../../include_lib/liba/dv17/libwebsrv.a" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="pi32v2_r3_lto_compiler" />
+				<Compiler>
+					<Add option="-flto" />
+					<Add option="-Oz" />
+					<Add option="-D_POSIX_SOURCE" />
+					<Add option="-D_SYS_SELECT_H" />
+					<Add option="-DCONFIG_FREE_RTOS_ENABLE" />
+					<Add option="-DWITH_DTLS" />
+					<Add directory="../../../../include_lib/system/generic" />
+					<Add directory="../../../../include_lib/system/cpu/DV17" />
+					<Add directory="../../../../include_lib/system" />
+					<Add directory="../../websrv" />
+					<Add directory="../../../../include_lib/net" />
+					<Add directory="../../../../include_lib/net/libcoap" />
+					<Add directory="../../../../include_lib/net/lwip/app" />
+					<Add directory="../../../../include_lib/net/lwip/src/include" />
+					<Add directory="../../../../include_lib/net/lwip/port" />
+					<Add directory="../../../../include_lib" />
+					<Add directory="../../../../include_lib/net/tinydtls" />
+					<Add directory="../../websrv/include" />
+					<Add directory="../../../../include_lib/net/lwip/app/sock_api" />
+				</Compiler>
+				<Linker>
+					<Add option="-flto" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="./" />
+		</Compiler>
+		<Unit filename="../analysis.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../analysis.h" />
+		<Unit filename="../cgi_test/cgi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../cgi_test/favicon_ico.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../cgi_test/index_html.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../cgi_test/jquery_min_js.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../http.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../include/http.h" />
+		<Unit filename="../include/misc.h" />
+		<Unit filename="../include/websrv_io.h" />
+		<Unit filename="../include/wrio.h" />
+		<Unit filename="../mg_compat.h" />
+		<Unit filename="../misc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../request.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../websrv_http.h" />
+		<Unit filename="../wrhash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../wrhash.h" />
+		<Unit filename="../wrio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../wrmpool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../wrmpool.h" />
+		<Unit filename="../wrstring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../wrstring.h" />
+		<Extensions>
+			<debugger>
+				<remote_debugging>
+					<options conn_type="0" serial_baud="115200" ip_address="127.0.0.1" ip_port="9999" />
+				</remote_debugging>
+			</debugger>
+			<code_completion />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
