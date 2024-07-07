@@ -45,6 +45,8 @@ enum {
 
 #define USB_STATE_NO_DEV         0x0
 #define USB_STATE_DEVICE_MOUNT   0x1
+#define TEST_USB_STATE_DEVICE   0xFF
+
 
 struct usb_app_handle {
     u8 state;
