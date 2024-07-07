@@ -863,7 +863,9 @@ printf("\n add new count:gary-yl \n");
     rec_wav_stop();
     while (1) {
         os_time_dly(100) ;
-    }
+       os_time_dly(100) ;
+    
+  }
 #endif
 
 #ifdef ISP_TEST_ENABLE
