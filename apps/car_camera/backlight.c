@@ -12,7 +12,7 @@ static u16 lcd_pro_cnt = 0;
 static int timer = 0;
 
 static void *pwm_dev_handle = NULL;
-
+static void  other_count_for_test=0;
 
 static void ui_lcd_light_on(void)
 {
