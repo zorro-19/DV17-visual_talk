@@ -786,7 +786,7 @@ void app_main()
     audio_test_init();
     return;
 #endif
-
+printf("\n add new count:gary-yl \n");
     struct intent it;
     int err;
 
