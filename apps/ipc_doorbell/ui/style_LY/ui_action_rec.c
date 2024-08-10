@@ -3802,37 +3802,6 @@ static const struct uimsg_handl standby_msg_handler[] = {
 static u32 standby_update_timer = 0;   //更新主界面时间
 
 
-
-static int main_and_rec_onkey(void *ctr, struct element_key_event *e)
-{
-    struct intent it;
-    struct application *app = get_current_app();
-    if (e->event == KEY_EVENT_LONG && e->value == KEY_POWER) {
-
-      //  return true;
-    }
-
-    printf("/****** [%s] %d \n",__func__,__LINE__);
-    switch (e->value) {
-    case KEY_UP:
-
-        break;
-    case KEY_DOWN:
-
-        break;
-    case KEY_OK:
-
-        break;
-    case KEY_MODE:
-        return true;
-        break;
-    default:
-        return false;
-    }
-
-    return true;
-}
-
 /*****************************待机页面回调 ************************************/
 static int window_main_mode_onchange(void *ctr, enum element_change_event e, void *arg)
 {
@@ -3871,7 +3840,7 @@ static int window_main_mode_onchange(void *ctr, enum element_change_event e, voi
 }
 REGISTER_UI_EVENT_HANDLER(ID_WINDOW_MAIN_AND_REC)
 .onchange = window_main_mode_onchange,
- .onkey = main_and_rec_onkey,
+ .onkey =NULL,// main_and_rec_onkey,
   .ontouch = NULL,
 };
 

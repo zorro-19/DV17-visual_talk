@@ -500,10 +500,15 @@ void  find_next_file(uint64_t start_time, char *path){
              //   printf("\n  >>>>>>>>>>>>>>>>>>1 p->name = %s\n",p->name);
             struct tm t1 = {0};
             covUnixTimeStp2Beijing(p->start_time, &t1);
-		#if  1
+		#if  0
             printf("\n p->start_time: %llu ,convert is: %d/%02d/%02d-%02d:%02d:%02d weed = %d year_day = %d\n", p->start_time,
             t1.tm_year, t1.tm_mon, t1.tm_mday, \
             t1.tm_hour, t1.tm_min, t1.tm_sec, t1.tm_wday, t1.tm_yday);
+        #else
+            printf("\n p->start_time: %llu ,convert is: %d/%02d/%02d-%02d:%02d:%02d weed = %d\n", p->start_time,
+            t1.tm_year, t1.tm_mon, t1.tm_mday, \
+            t1.tm_hour, t1.tm_min, t1.tm_sec, t1.tm_wday);
+
         #endif
          //   printf("\n ===========covUnixTimeStp2Beijing >>>>>>>>>>>>>>>>>>p->name = %s,p->start_time:%llu\n",p->name,p->start_time);
 
@@ -525,12 +530,19 @@ void  find_next_file(uint64_t start_time, char *path){
                         next_flag=0;
                         break ;
                     }
-                   //  if((t.tm_min == t1.tm_min)&&(t.tm_hour == t1.tm_hour)) {//当前app 下发的文件
-                      if((t.tm_min == t1.tm_min?1: (t.tm_min>t1.tm_min+1 ?0:( t.tm_sec>=t1.tm_sec?0:1)  ))&&(t.tm_hour == t1.tm_hour))  {//当前app 下发的文件
+
+                    if((t.tm_min == t1.tm_min)&&(t.tm_sec==t1.tm_sec)&&(t.tm_hour == t1.tm_hour)){
 
                         next_flag=1;
 
-                        printf("\n  find app curr  file \n");
+                        printf("\n  find app curr  file0 \n");
+
+
+                    }else if((t.tm_min == t1.tm_min?1: (t.tm_min>t1.tm_min+1 ?0:( t.tm_sec>=t1.tm_sec?0:1)  ))&&(t.tm_hour == t1.tm_hour))  {//当前app 下发的文件
+
+                        next_flag=1;
+
+                        printf("\n  find app curr  file1 \n");
                        // snprintf(path, 128, CONFIG_ROOT_PATH"%s%s", p->dir, p->name);
 
                     //    printf("\n path:%s \n",path);
@@ -655,8 +667,15 @@ void cloud_playback_list_get_name_for_start_time(uint64_t start_time,uint64_t *f
         #endif
            // printf("\n  >>>>>>>>>>>>>>>>>>1 rtype = %d\n",rtype);
 			if (p) {
+                    if((t.tm_min == t1.tm_min)&&(t.tm_sec==t1.tm_sec)&&(t.tm_hour == t1.tm_hour)){
 
-                     if((t.tm_min == t1.tm_min?1: (t.tm_min>t1.tm_min+1 ?0:( t.tm_sec>=t1.tm_sec?0:1)  ))&&(t.tm_hour == t1.tm_hour)) {
+                        snprintf(path, 128, CONFIG_ROOT_PATH"%s%s", p->dir, p->name);
+
+                        *fd_time= p->start_time;
+                       // printf("\n  MK>>>>>>>>>>>>>>>>>> fd_time = %d\n",*fd_time);
+                        printf("\n path2:%s \n",path);
+                        break;
+                    }else if((t.tm_min == t1.tm_min?1: (t.tm_min>t1.tm_min+1 ?0:( t.tm_sec>=t1.tm_sec?0:1)  ))&&(t.tm_hour == t1.tm_hour) ) {
                         snprintf(path, 128, CONFIG_ROOT_PATH"%s%s", p->dir, p->name);
 
                         #if  0
@@ -671,7 +690,7 @@ void cloud_playback_list_get_name_for_start_time(uint64_t start_time,uint64_t *f
                         *fd_time= p->start_time;
 
                        // printf("\n  KK>>>>>>>>>>>>>>>>>> fd_time = %d\n",*fd_time);
-                        printf("\n path2:%s \n",path);
+                        printf("\n path2_:%s \n",path);
                         break;
                     }
 
@@ -1515,7 +1534,7 @@ int enter_product_mode(){
 }
 static void cloud_list_device_event_handler(struct sys_event *event)
 {
-     printf("\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>%d,%s, %s %d\n",event->u.dev.event,event->arg,__func__,__LINE__);
+   //  printf("\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>%d,%s, %s %d\n",event->u.dev.event,event->arg,__func__,__LINE__);
     if (!ASCII_StrCmp(event->arg, "sd*", 4)) {
         switch (event->u.dev.event) {
         case DEVICE_EVENT_ONLINE:

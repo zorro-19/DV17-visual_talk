@@ -315,14 +315,14 @@
 
 #define ENABLE_CONTROL_USB_SEPAK_MUTE  //使能从机 mute控制
 #define MOTOR_AUTO_CALIBRATION      //使能上电自动电机校准
+#define ENABLE_VIDEO_FILE_AUTO_ADD      //未联网情况下使能文件递增
 
 #ifdef LONG_POWER_IPC
 #define CONFIG_STATIC_IPADDR_ENABLE          //记忆路由器分配的IP,下次直接使用记忆IP节省DHCP时间
 #endif
 
 
-#define  USER_UART_UPDATE_ENABLE
-#define  UART_UPDATE_ROLE           UART_UPDATE_MASTER
+
 
 
 #ifdef CONFIG_UI_ENABLE
@@ -504,6 +504,10 @@
 #define CONFIG_AC7016_ENABLE
 #ifdef CONFIG_AC7016_ENABLE
 #define CONFIG_USB_UVC_AND_UAC_ENABLE
+
+#define  USER_UART_UPDATE_ENABLE
+#define  UART_UPDATE_ROLE           UART_UPDATE_MASTER
+
 #endif
 //#define CONFIG_AEC_DNS_ENABLE  //使能回声消除
 
@@ -596,7 +600,7 @@
 //#define  DOORBELL_VERSION       "20240326_V0.0001_test1"
 //#define  DOORBELL_VERSION       "20240326_LPV0.0001_test1"
 //#define  DOORBELL_VERSION       "20240415_LP1.3V.0001_test1"
-#define    DOORBELL_VERSION       "20240524_V1.3.0001_test"
+#define    DOORBELL_VERSION       "20240605_V1.3.0001_test"
 
 
 

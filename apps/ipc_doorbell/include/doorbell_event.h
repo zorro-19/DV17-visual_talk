@@ -52,6 +52,7 @@ enum WAKEUP_STATUS {
     BREAK_WAKEUP = 4,//强拆唤醒
     LOWPOWER_WAKEUP = 5,//低电唤醒
     MOVT_WAKEUP = 6,//移动侦测
+    NORMAL_WAKEUP = 7,//常规录像
 
 
     LOCAL_MSG_WAKEUP = 0xA,//本地留言

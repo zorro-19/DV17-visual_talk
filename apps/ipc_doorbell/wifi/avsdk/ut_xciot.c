@@ -126,11 +126,11 @@ void iot_dev_on_connect_platform_cb(void *priv)
 
 
     if(!get_updrade_state()){//升级状态不去播报
-    //是否有设备绑定
-    if(p->users_count){
+
+   // if(p->users_count){
     post_msg_doorbell_task("doorbell_event_task", 2, DOORBELL_EVENT_PLAY_VOICE, "NetCfgSucc.adp");
 
-    }
+   // }
    }
    set_updrade_state(0);
     for(int i = 0;i< p->users_count;i++){
@@ -179,9 +179,9 @@ static void iot_dev_on_connect_platform(iot_conn_platform_state_t state)
             os_taskq_post("hi_channel_task", 1, HI_CHANNEL_CMD_GET_WIFI_LIST);
             #endif
             printf("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>timer_get_ms() - start_time = %d\n", timer_get_ms() - start_time);
-
-          //  sys_timeout_add_to_task("doorbell_block_event_task",NULL,iot_dev_on_connect_platform_cb,10);
-            sys_timeout_add_to_task("doorbell_block_event_task",NULL,iot_dev_on_connect_platform_cb,5000);//获取用户列表需要等
+           //  post_msg_doorbell_task("doorbell_event_task", 2, DOORBELL_EVENT_PLAY_VOICE, "NetCfgSucc.adp");
+            sys_timeout_add_to_task("doorbell_block_event_task",NULL,iot_dev_on_connect_platform_cb,10);
+         //   sys_timeout_add_to_task("doorbell_block_event_task",NULL,iot_dev_on_connect_platform_cb,5000);//获取用户列表需要等
 
         }
 

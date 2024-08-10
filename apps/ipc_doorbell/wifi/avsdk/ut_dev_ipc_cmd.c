@@ -719,6 +719,16 @@ void default_plan_timer(){
 
 bool judge_plan_video_timer(){
 
+
+    #ifdef ENABLE_VIDEO_FILE_AUTO_ADD
+    if(!get_avsdk_connect_flag()){
+
+    printf("\n no connect platform \n");
+     return 1;  //未联上平台 继续循环录像
+
+    }
+    #endif
+
     extern int dev_read_plane_time_vm(char *data, int len);
     dev_read_plane_time_vm(&video_plan, sizeof(struct video_splan));
 
@@ -747,7 +757,11 @@ bool judge_plan_video_timer(){
     printf("convert is: %04d/%02d/%02d-%02d:%02d:%02d cur_weed = %d year_day = %d\n",
             standby_time.tm_year, standby_time.tm_mon, standby_time.tm_mday, \
             standby_time.tm_hour, standby_time.tm_min, standby_time.tm_sec,standby_time.tm_wday, standby_time.tm_yday);
+    printf("\n time.year:%d\n",time.year);
+    if(time.year<2024){// 未联网情况下 默认开启录像
 
+        return 1;
+    }
     int cur_timer= standby_time.tm_hour*60*60+standby_time.tm_min*60+standby_time.tm_sec;
     int cur_timer_min= standby_time.tm_hour*60+standby_time.tm_min;
 
@@ -773,22 +787,27 @@ bool judge_plan_video_timer(){
        //printf("\n curr:%d\n ",cur_timer);
        //printf("\n  i:%d,k:%d, plan_week:%d\n",i,k,video_plan.history_plan_tt[i].week_day[k]);
        //printf("\n  standby_time.tm_wday:%d\n",standby_time.tm_wday);
+
+
+
+
+
        if(video_plan.history_plan_tt[i].week_day[k]==standby_time.tm_wday)//先判断星期
         {
-          putchar('E');
+          putchar('F');
 
          if(video_plan.history_plan_tt[i].time[0].end_sec<=video_plan.history_plan_tt[i].time[0].start_sec){ //时间隔天了
-            putchar('G');
+            putchar('H');
           // if( (cur_timer) > video_plan.history_plan_tt[i].time[0].start_sec){
            if( (cur_timer_min) >= plan_s_miute){
-             putchar('H');
+             putchar('I');
            // printf("\n g_i:%d,k:%d\n",i,k);
             return 1;
 
            }
 
          }else{
-         putchar('T');
+         putchar('J');
 
          //printf("\n a:%d\n",cur_timer);
         // printf("\n b:%d\n",video_plan.history_plan_tt[i].time[0].start_sec);//3547
@@ -797,17 +816,37 @@ bool judge_plan_video_timer(){
         //if( ((cur_timer) >=video_plan.history_plan_tt[i].time[0].start_sec )&&((cur_timer)<=video_plan.history_plan_tt[i].time[0].end_sec) )
         if( ((cur_timer_min) >=plan_s_miute )&&((cur_timer_min)<=plan_e_miute) )
         {
-           // printf("\n i:%d,k:%d\n",i,k);
-             putchar('J');
+
+           //printf("\n i:%d,k:%d\n",i,k);
+            putchar('K');
             return 1;
 
          }
         }
+      }else{ // 隔天情况
+
+
+          putchar('L');
+
+           if( (video_plan.history_plan_tt[i].week_day[k]+1)==standby_time.tm_wday)  // k跨天时， 刚好实际时间过了凌晨  则需要 app+1
+            {
+             putchar('M');
+               if(video_plan.history_plan_tt[i].time[0].end_sec<=video_plan.history_plan_tt[i].time[0].start_sec){ //app 设置隔天情况
+                    putchar('N');
+                 if( (cur_timer_min<=plan_e_miute) ){
+                     putchar('O');
+                    return 1;
+
+
+                 }
+            }
+         }
+
       }
 
     }
 
-      // return 0;
+      // return 0;  //  20:  19:20
     }
 }
     putchar('N');

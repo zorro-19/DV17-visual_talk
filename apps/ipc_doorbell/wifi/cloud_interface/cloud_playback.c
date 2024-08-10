@@ -516,7 +516,7 @@ int cloud_playback_init(int32_t conn_id,  uint64_t file_id, int64_t start_time, 
     snprintf(p->task_name, sizeof(p->task_name), "cloud_playback_task%d", count++);
 
     thread_fork(p->task_name, 8, 0x1000, 0, &p->task_id, cloud_playback_task, p);
-
+    printf("\n p->task_id:%d\n",p->task_id);
 
     os_mutex_pend(&cloud_playback_mutex, 0);
     list_add_tail(&p->entry, &cloud_playback_list_head);
@@ -530,15 +530,23 @@ int cloud_playback_uninit(int32_t conn_id,  uint64_t file_id)
     struct list_head *pos = NULL, *node = NULL;
     os_mutex_pend(&cloud_playback_mutex, 0);
     if (list_empty(&cloud_playback_list_head)) {
+         putchar('N');
         os_mutex_post(&cloud_playback_mutex);
         return 0;
     }
     list_for_each_safe(pos, node, &cloud_playback_list_head) {
         p = list_entry(pos, CLOUD_PLAYBACK_INFO, entry);
+        putchar('P');
         if (p) {
+            printf("\n p->conn_id:%d\n",p->conn_id);
+            printf("\n conn_id:%d\n",conn_id);
+              printf("\n u_p->task_id:%d\n",p->task_id);
             if (p->conn_id == conn_id) {
-                list_del(&p->entry);
                 p->kill_flag = 1;
+                os_time_dly(10);
+                list_del(&p->entry);
+
+
                 thread_kill(&p->task_id, 0);
                 free(p);
                 break;

@@ -985,7 +985,10 @@ void Motor_Auto_calibration(){
 
     }
     else{
-     clear_wifi_ready_value(1);
+    clear_wifi_ready_value(1);
+    wait_completion(storage_device_ready,
+                                      video_rec_storage_device_ready, (void *)1);
+
     }
     #else
     clear_wifi_ready_value(1);
@@ -1234,11 +1237,12 @@ void app_main()
     }
 
 #endif
-
+#ifdef USER_UART_UPDATE_ENABLE
 
     extern void  uart_update_init();
     uart_update_init(NULL);
     os_time_dly(10);
+#endif
   //int uart_clk=clk_get("uart");
   //UT1_BAUD = (uart_clk / 9600) / 4 - 1;
   //UT1_BAUD = (uart_clk / 500000) / 4 - 1;
