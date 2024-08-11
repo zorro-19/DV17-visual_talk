@@ -62,6 +62,10 @@
 #define LOCK_FILE_PERCENT	40    //0~100
 #define NAME_FILE_BY_DATE   1
 
+#ifdef PRODUCT_TEST_ENABLE
+#include "datatype.h"
+extern u8 product_rtc_default_wr(struct product_rtc_time *time, u8 is_write);
+#endif
 
 static int video_rec_start();
 static int video_rec_stop(u8 close);
@@ -458,9 +462,9 @@ void get_last_video_file(char *file_name){
     //file_name=&video_name[0];
     for (int i = 0; i < ARRAY_SIZE(rec_path); i++) {
          printf("\n ====page===%d,%s\n",__LINE__,__FUNCTION__);
-        video_fscan[1][i] = fscan(rec_path[i][1], str);
+        video_fscan[i][i] = fscan(rec_path[i][i], str);
          printf("\n ====page===%d,%s\n",__LINE__,__FUNCTION__);
-        if (video_fscan[1][i] == NULL) {
+        if (video_fscan[i][i] == NULL) {
         printf("\n no file\n");
             continue;
         }
@@ -468,7 +472,7 @@ void get_last_video_file(char *file_name){
         int sel_mode =FSEL_LAST_FILE;
         while (1) {
                  printf("\n ====page===%d,%s\n",__LINE__,__FUNCTION__);
-            FILE *file = fselect(video_fscan[1][i], sel_mode, 0);
+            FILE *file = fselect(video_fscan[i][i], sel_mode, 0);
             if (!file) {
              printf("\n ====page===%d,%s\n",__LINE__,__FUNCTION__);
 
@@ -486,8 +490,8 @@ void get_last_video_file(char *file_name){
 
         #endif
         fclose(file);
-        fscan_release(video_fscan[1][i]);
-        video_fscan[1][i] = NULL;
+        fscan_release(video_fscan[i][i]);
+        video_fscan[i][i] = NULL;
         break ;
         }
 
@@ -516,34 +520,47 @@ void get_last_video_file(char *file_name){
 //#endif
 //};
 
+
+
+
 extern u8 get_avsdk_connect_flag(void);
 static const char *rec_file_name(int format)
 {
 #if NAME_FILE_BY_DATE
     struct sys_time time;
     static char file_name[MAX_FILE_NAME_LEN];
+
+    #ifdef ENABLE_VIDEO_FILE_AUTO_ADD
     static u8  very_timer=0;
     char last_file_name[128]={0};
-    if (__get_sys_time(&time) == 0) {
-
-    #if  0
-
+     if(!get_avsdk_connect_flag()){
         if(!very_timer)
         {
-        very_timer=1;
-       // if(!get_avsdk_connect_flag()){  // KEY_20240511_152617.MOV
-
+         very_timer=1;
          get_last_video_file(&last_file_name[0]);
          struct tm p;
          get_utc_time_for_name(&p, &last_file_name[0], strlen(last_file_name));
          char day[64];
          snprintf(day, sizeof(day), "%d%02d%02d%02d%02d%02d", p.tm_year, p.tm_mon, p.tm_mday,p.tm_hour,p.tm_min,p.tm_sec);
-         printf("\n last_file_name:%s, %s:%s\n ",last_file_name,day);
-
-       // }
-
+         printf("\n last_file_name:%s, %s \n ",last_file_name,day);
+         #ifdef PRODUCT_TEST_ENABLE
+         struct product_rtc_time rtime = {0};
+         rtime.year=p.tm_year;
+         rtime.month=p.tm_mon;
+         rtime.day=p.tm_mday;
+         rtime.hour=p.tm_hour;
+         rtime.min=p.tm_min+db_select("cyc") ;
+         rtime.sec=p.tm_sec;
+         printf("\n rtime.min=%d\n",rtime.min);
+         product_rtc_default_wr(&rtime, 1);
+         #endif
         }
+
+     }
      #endif
+    if (__get_sys_time(&time) == 0) {
+
+
         if (format == VIDEO_FMT_AVI) {
             sprintf(file_name, "%s_%d%02d%02d_%02d%02d%02d.AVI", file_name_prefix,
                     time.year, time.month, time.day, time.hour, time.min, time.sec);
@@ -999,23 +1016,26 @@ static void rec_dev_server_event_handler(void *priv, int argc, int *argv)
       //  printf("mot\n");
 
         if (!db_select("mot")) {
-            putchar("M");
+            putchar("A");
              #ifdef LONG_POWER_IPC
              //判断录像时间范围
                if(judge_plan_video_timer()){
-                 putchar("C");
+                 putchar("B");
                  video_rec_savefile((int)priv);
+
+               //  void start_cloud_video( int wakeup_status);
+               //  start_cloud_video(NORMAL_WAKEUP);
                  break;
                }else{
-                  putchar("P");
+                  putchar("C");
                   video_rec_stop(0);
                  break;
                }
             #endif
-            putchar("S");
+            putchar("D");
             video_rec_savefile((int)priv);
         } else {
-            putchar("P1");
+            putchar("E");
             video_rec_stop(0);
         }
         break;
@@ -1030,6 +1050,7 @@ static void rec_dev_server_event_handler(void *priv, int argc, int *argv)
 extern void play_voice_file(const char *file_name);
 static void ve_server_event_handler(void *priv, int argc, int *argv)
 {
+    printf("\n ==============page=============:%d,%d,%s\n ",argv[0],__LINE__,__FUNCTION__);
     switch (argv[0]) {
     case VE_MSG_MOTION_DETECT_STILL:
         /*
@@ -1050,9 +1071,9 @@ static void ve_server_event_handler(void *priv, int argc, int *argv)
         /*
          *移动侦测打开，当检测到画面活动一段时间，则进入该分支去启动录像
          */
-        printf("**************VE_MSG_MOTION_DETECT_MOVING**********\n");
-      printf("\n db_select(mot)==========%d,%d\n",db_select("mot"),__this->menu_inout);
+      printf("**************VE_MSG_MOTION_DETECT_MOVING**********\n");
 
+      printf("\n db_select(mot)==========%d,%d\n",db_select("mot"),__this->menu_inout);
       #if  1
         if (!db_select("mot") || (__this->menu_inout)) {
             return;
@@ -1068,6 +1089,14 @@ static void ve_server_event_handler(void *priv, int argc, int *argv)
            // video_rec_start();
 
          doorbell_start_rec();
+
+        #if  1
+         if (get_avsdk_connect_flag()) {
+
+            extern   void start_cloud_video( int wakeup_status);
+            start_cloud_video(MOVT_WAKEUP);
+          }
+        #endif
         }
 
         break;
@@ -1171,11 +1200,13 @@ static s32 ve_server_open(u8 fun_sel)
         //ve_lane_det_start(1);
 
     } else {
-        //printf("--------------server open %d\n",fun_sel);
+        printf("--------------server open %d\n",fun_sel);
         __this->car_head_y = 351;//db_select("lan") & 0x0000ffff;
         __this->vanish_y   = 0;//(db_select("lan") >> 16) & 0x0000ffff;
         ve_mdet_start();
+        #ifndef LONG_POWER_IPC
         ve_lane_det_start(0);
+        #endif
     }
 
     return 0;
@@ -1192,8 +1223,9 @@ static s32 ve_server_close()
         if (!__this->lan_det_setting) {
             ve_mdet_stop();
         }
+        #ifndef LONG_POWER_IPC
         ve_lane_det_stop(0);
-
+        #endif
         server_close(__this->video_engine);
 
         __this->video_engine = NULL;
@@ -1283,7 +1315,7 @@ static void ve_mdet_reset()
 
 static int ve_lane_det_start(u8 fun_sel)
 {
-    #ifdef  ENABLE_VE_ENGINER
+    #ifdef LONG_POWER_IPC
      return 0;
     #endif
     struct video_engine_req ve_req;
@@ -1329,8 +1361,8 @@ static int ve_lane_det_start(u8 fun_sel)
 
 static int ve_lane_det_stop(u8 fun_sel)
 {
-    #ifdef  ENABLE_VE_ENGINER
-      return 0;
+    #ifdef LONG_POWER_IPC
+     return 0;
     #endif
     struct video_engine_req ve_req;
 
@@ -1359,9 +1391,10 @@ static int ve_lane_det_stop(u8 fun_sel)
 void ve_lane_det_reset()
 {
 
-    #ifdef  ENABLE_VE_ENGINER
+    #ifdef LONG_POWER_IPC
      return ;
     #endif
+
     ve_lane_det_stop(0);
     ve_lane_det_start(0);
     ve_face_det_start(0);
@@ -1371,10 +1404,9 @@ void ve_lane_det_reset()
 
 static int ve_face_det_start(u8 fun_sel)
 {
-    #ifdef  ENABLE_VE_ENGINER
-      return 0;
+    #ifdef LONG_POWER_IPC
+     return 0 ;
     #endif
-
     struct video_engine_req ve_req;
 
     return 0;
@@ -1411,8 +1443,8 @@ static int ve_face_det_start(u8 fun_sel)
 
 static int ve_face_det_stop(u8 fun_sel)
 {
-    #ifdef  ENABLE_VE_ENGINER
-      return 0;
+     #ifdef LONG_POWER_IPC
+     return 0;
     #endif
 
     struct video_engine_req ve_req;
@@ -1445,8 +1477,8 @@ static int ve_face_det_stop(u8 fun_sel)
 void ve_face_det_reset()
 {
 
-    #ifdef  ENABLE_VE_ENGINER
-      return ;
+    #ifdef LONG_POWER_IPC
+     return ;
     #endif
     ve_face_det_stop(0);
     ve_face_det_start(0);
@@ -1461,7 +1493,11 @@ void ve_server_reopen()
     #endif
 
     ve_mdet_stop();
+
+    #ifndef LONG_POWER_IPC
     ve_lane_det_stop(0);
+    #endif
+
 
     ve_server_close();
     ve_server_open(0);
@@ -6246,6 +6282,31 @@ static int video_rec_state_machine(struct application *app, enum app_state state
     return err;
 }
 
+void start_cloud_video( int wakeup_status){
+
+        u8 contact_num = 0;
+        user_list_t *p;
+
+        int avsdk_get_user_list(int32_t user_type, user_list_t *p);
+        printf("\n >>>>>>>>>>>>%s %d\n",__func__,__LINE__);
+
+        int32_t user_type = get_user_type();
+        user_list_t *p1 = get_user_list_t_info();
+        avsdk_get_user_list(user_type,p1);
+        contact_num = p1->users_count;
+        printf("\n contact_num=================%d\n ",contact_num);
+
+        RT_TALK_INFO  info = {0};
+        if(find_device_video_play_info(&info) || find_audio_play_info()){
+
+            return;
+        }
+        backup_wakeup_status =wakeup_status;// MOVT_WAKEUP; //
+        void *user = calloc(1,sizeof(user_info_t));
+        memcpy(user,&p1->users[0],sizeof(user_info_t));
+        post_msg_doorbell_task("doorbell_block_event_task", 3, DOORBELL_EVENT_GET_GET_WAKEUP_SOURCE, backup_wakeup_status,user);
+}
+
 /*
  *录像app的按键响应函数
  */
@@ -6270,7 +6331,7 @@ static int video_rec_key_event_handler(struct sys_event *event)
             printf("video_rec_key_ok: %d\n", __this->state);
 
 
-                    #if  0
+            #if  0
                     extern void test_host_mute();
                     extern s32 usb_host_speaker_set_mute(u8 mute);
 
@@ -6279,7 +6340,7 @@ static int video_rec_key_event_handler(struct sys_event *event)
                     test_host_mute();
 
                       return true;
-                    #endif
+            #endif
 
 
 
@@ -6308,9 +6369,6 @@ static int video_rec_key_event_handler(struct sys_event *event)
 //              u8 contact_num = get_contact_num();
                 u8 contact_num = 0;
                 user_list_t *p;
-
-              //  p = get_user_list_t_info();
-
 
 
                 int avsdk_get_user_list(int32_t user_type, user_list_t *p);
@@ -6355,7 +6413,7 @@ static int video_rec_key_event_handler(struct sys_event *event)
                         break;
                     }
 
-//                  post_msg_doorbell_task("doorbell_block_event_task", 3, DOORBELL_EVENT_GET_GET_WAKEUP_SOURCE, backup_wakeup_status,NULL);
+
 
                     void *user = calloc(1,sizeof(user_info_t));
                     memcpy(user,&p1->users[0],sizeof(user_info_t));
@@ -6476,8 +6534,8 @@ static int video_rec_key_event_handler(struct sys_event *event)
 		case KEY_NET:
 		#endif
 
-            printf("\n ENTER_RESET_CPU_MODE, %s,%d\n ",__FUNCTION__,__LINE__);
-           post_msg_doorbell_task("doorbell_event_task", 1, DOORBELL_EVENT_ENTER_RESET_CPU);
+        printf("\n ENTER_RESET_CPU_MODE, %s,%d\n ",__FUNCTION__,__LINE__);
+        post_msg_doorbell_task("doorbell_event_task", 1, DOORBELL_EVENT_ENTER_RESET_CPU);
 
         break;
     default:

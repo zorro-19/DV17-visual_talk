@@ -3712,6 +3712,21 @@ void doorbell_start_rec(void)
     if (!get_video_rec_state()) {
         printf("\n\n >>>>>>>>>>>>>>%s %d\n\n",__func__,__LINE__);
         video_rec_control_start();
+#if 0
+        if (__this->state == VIDREC_STA_START) {
+            return ;
+        }else{
+
+        #if 0
+          if (get_avsdk_connect_flag()&&(!db_select("mot"))) {
+
+            extern   void start_cloud_video( int wakeup_status);
+            start_cloud_video(NORMAL_WAKEUP);
+          }
+         #endif
+        }
+
+#endif
     }
 }
 

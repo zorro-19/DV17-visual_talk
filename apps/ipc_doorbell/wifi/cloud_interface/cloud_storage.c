@@ -13,7 +13,7 @@
 
 #include "action.h"
 
-#define CLOUD_STORAGE_DEBUG
+//#define CLOUD_STORAGE_DEBUG
 
 /***注意：
 **运存接口不支持多线程操作
@@ -193,6 +193,9 @@ int get_avsdk_event_id(int wakeup_status)
         event_id = 62;
     }else if (wakeup_status ==MOVT_WAKEUP ) {
         event_id = E_IOT_EVENT_MOTION_DETECTION;
+    }else if (wakeup_status ==NORMAL_WAKEUP ) {
+
+        event_id = E_IOT_EVENT_MOTION_DETECTION;
     }
 
     return event_id;
@@ -218,7 +221,7 @@ int64_t set_avsdk_push_event(int wakeup_status, u8 uploading,u8 isCS,void *user)
         printf("\n\n p.users[%d].uid = %d\n\n",i,p.users[i].user_type );
     }
 #endif
-    printf("\n >>>>>>>>>>>>%d, %s %d\n",get_avsdk_connect_flag(),__func__,__LINE__);
+    printf("\n >>>>>>>>>>>>%d,%d, %d,%llu,%s %d\n",get_avsdk_connect_flag(),wakeup_status,uploading,start_time,__func__,__LINE__);
     if (!get_avsdk_connect_flag()) {
         goto __exit;
     }
@@ -226,7 +229,7 @@ int64_t set_avsdk_push_event(int wakeup_status, u8 uploading,u8 isCS,void *user)
     event.isCS = isCS;
     event.value = 0;
     event.utc_ms = uploading ? start_time : get_utc_ms();
-  //  event.local = true;
+  //event.local = true;
     event.local = false;
 
     event.id = get_avsdk_event_id(wakeup_status);
@@ -240,6 +243,8 @@ int64_t set_avsdk_push_event(int wakeup_status, u8 uploading,u8 isCS,void *user)
 
 __again:
     ret =  avsdk_push_event(&event);
+
+
     if (ret <  0) {
         if (ret == -2 && is_same_wakeup_status(wakeup_status)) {
             printf("\n >>>>>> The same event cannot be triggered repeatedly within 5S\n");
@@ -307,16 +312,37 @@ int wakeup_status_backup_cb_condition(void)
     return (get_avsdk_connect_flag() && cloud_storage_up_state == CLOUD_STORAGE_START);
 }
 
+
+int get_cloud_time(void)
+{
+    return db_select("cyc") * 30;
+}
+
+int get_cloud_max_frame_cnt(void)
+{
+
+        int cloud_storage_fps_total_cnt =  get_cloud_time() * net_video_rec_get_fps();
+        return cloud_storage_fps_total_cnt;
+}
 //保留云存定时器的目的是为了应对不联网的情况下，云存的启动
 #define CLOUD_STORAGE_TIME_INTERVAL     100// 判断一次100ms
 void cloud_storage_timer(void *priv)
 {
     static int cnt;
+
+    // printf("\n >>>>>>>>>>>>%d,%d, %s %d\n",get_avsdk_connect_flag(),cloud_storage_up_state,__func__,__LINE__);
     if (get_avsdk_connect_flag()) {
         //云存未开始则需要启动云存
+
+
         os_mutex_pend(&cloud_storage_mutex, 0);
+
+      //   printf("\n >>>>>>>>>>>>%d, %s %d\n",get_avsdk_connect_flag(),__func__,__LINE__);
         if (cloud_storage_up_state == CLOUD_STORAGE_STARTING) {
             if (os_sem_valid(&cloud_storage_sem) && !os_sem_query(&cloud_storage_sem)) {
+
+
+                printf("\n >>>>>>>>>>>>%d, %s %d\n",get_avsdk_connect_flag(),__func__,__LINE__);
                 os_sem_post(&cloud_storage_sem);
                 cnt = 0;
             }
@@ -335,15 +361,24 @@ void cloud_storage_timer(void *priv)
         }
 
 #else
-        int is_del = 0;
+
+        int cloud_storage_fps_total_cnt =  get_cloud_max_frame_cnt();
         //采用数帧数方式退出云存
+        int is_del = 0;
         for (int i = 0; i < CONFIG_CLOUD_STORAGE_NUM; i++) {
-            printf("\n cloud_storage_fps_cnt[%d] = %d\n", i, cloud_storage_fps_cnt[i]);
-            if (cloud_storage_fps_cnt[i] >= db_select("cyc") * net_video_rec_get_fps()) {
+            printf("\n cloud_cnt= %d\n",cloud_storage_fps_cnt[i]);
+            if (cloud_storage_fps_cnt[i] >= cloud_storage_fps_total_cnt) {
                 is_del++;
             }
+
+
+
         }
+        //当所有云存通路全部上传完成才可以结束
         if (is_del >= CONFIG_CLOUD_STORAGE_NUM) {
+
+             //printf("\n cloud_cnt= %d\n",  cloud_storage_fps_cnt[0]);
+
             cloud_storage_timer_del();
         }
 
@@ -408,7 +443,7 @@ void do_event_push(void *priv)
             if (!cloud_storage_timer_id) {
                 cloud_storage_timer_cnt = 0;
                 memset(cloud_storage_fps_cnt, 0, sizeof(cloud_storage_fps_cnt));
-                cloud_storage_timeout_cnt = db_select("cyc");
+                cloud_storage_timeout_cnt = get_cloud_time();
                 cloud_storage_timer_id = sys_timer_add_to_task("sys_timer", NULL, cloud_storage_timer, CLOUD_STORAGE_TIME_INTERVAL);
 
             }
@@ -420,7 +455,7 @@ void do_event_push(void *priv)
                     goto __exit;
                 }
                 if (set_avsdk_push_event(info->wakeup_status, info->uploading,info->isCs,info->user) >= 0 && cloud_storage_timeout_cnt < CLOUD_STORAGE_TIME_CNT) {
-                    cloud_storage_timeout_cnt += db_select("cyc");
+                    cloud_storage_timeout_cnt += get_cloud_time();
                 }
             } else if (cloud_storage_up_state == CLOUD_STORAGE_STOPING) { //如果云存停止中，只发通知
                 if (is_same_wakeup_status(cur_wakeup_info.wakeup_status) &&  cur_wakeup_info.wakeup_status == PIR_WAKEUP) {
@@ -461,13 +496,22 @@ u8 get_wakeup_status_isCs(int wakeup_status)
         isCs = 1;
     }
 
+    if(wakeup_status == KEY_WAKEUP){
+        isCs = 0;
+    }
 
+    if(wakeup_status == MOVT_WAKEUP){
+        isCs = 1;
+    }
+    if(wakeup_status == NORMAL_WAKEUP){
+        isCs = 1;
+    }
     return isCs;
 }
 
 void set_wakeup_status(u8 status,void *user)
 {
-    printf("\n >>>>>>>>>>>>>>>>>%s %d\n",__func__,__LINE__);
+    printf("\n >>>>>>>>>>>>>>>>>%d,%s %d\n",status,__func__,__LINE__);
     if ((status == INIT_WAKEUP) || (status == NETWORK_WAKEUP)) {
         return;
     }
@@ -477,7 +521,7 @@ void set_wakeup_status(u8 status,void *user)
         printf("\n >>>>>>%s %d  os_mutex_pend err\n", __func__, __LINE__);
         return;
     }
-        printf("\n >>>>>>>>>>>>>>>>>%s %d\n",__func__,__LINE__);
+        printf("\n >>>>>>>>>>>>>>>>>%d,%s %d\n",status,__func__,__LINE__);
     cur_wakeup_info.wakeup_status = status;
 
     cur_wakeup_info.isCs = get_wakeup_status_isCs(cur_wakeup_info.wakeup_status);
@@ -489,7 +533,8 @@ void set_wakeup_status(u8 status,void *user)
     backup_info->wakeup_status = cur_wakeup_info.wakeup_status;
     backup_info->uploading = cloud_storage_up_state == cloud_storage_up_state ? 1 : 0;
     backup_info->isCs = cur_wakeup_info.isCs;
-        printf("\n >>>>>>>>>>>>>>>>>%s %d\n",__func__,__LINE__);
+
+    printf("\n >>>>>>>>>>>>>>>>>%s %d\n",__func__,__LINE__);
     if(user){
         backup_info->user = &backup_info->user_info;
         memcpy(backup_info->user,user,sizeof(user_info_t));
@@ -501,8 +546,6 @@ void set_wakeup_status(u8 status,void *user)
     if(!do_event_push_id){
         do_event_push_id = sys_timeout_add_to_task("doorbell_block_event_task",backup_info,do_event_push,10);
     }
-
-
 
     os_mutex_post(&cloud_storage_mutex);
 
@@ -519,8 +562,10 @@ int cloud_storage_video_write(int type, u8 is_key_frame, int timestamp, char *bu
         return 0;
     }
 
+
     os_mutex_pend(&cloud_media_info_list_mutex[i], 0);
 
+   // printf("\n cloud_storage_up_state:%d,%d,%d\n ",ch,cloud_storage_up_state,is_wait_iframe[i]);
     if (cloud_storage_up_state == CLOUD_STORAGE_STOPING) {
         os_mutex_post(&cloud_media_info_list_mutex[i]);
         return 0;
@@ -537,23 +582,32 @@ int cloud_storage_video_write(int type, u8 is_key_frame, int timestamp, char *bu
     }
 #endif // CLOUD_STORAGE_DEBUG
 
+
     if (cloud_storage_up_state == CLOUD_STORAGE_STOP || cloud_storage_up_state == CLOUD_STORAGE_IDLE) {
         int Iframe_cnt = 0;
 
         //printf("\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>>net_video_rec_get_fps() *3.5 = %d\n",(int)(net_video_rec_get_fps() * 3.5));
         if ((video_frame_count[ch] + 1) >= (int)(net_video_rec_get_fps() * 3.5)) {
-            //printf("\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>>video_frame_count = %d net_video_rec_get_fps() *3.5 = %d\n",video_frame_count[ch],(int)(net_video_rec_get_fps() * 3.5));
+         //   printf("\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>>video_frame_count = %d net_video_rec_get_fps() *3.5 = %d\n",video_frame_count[ch],(int)(net_video_rec_get_fps() * 3.5));
             list_for_each_entry_safe(p, n, &cloud_media_info_list_head[i], entry) {
                 if (Iframe_cnt == 0) {
                     if (p->type == H264_TYPE_VIDEO && p->is_key_frame) {
+
+                     //   printf("\n =========page=============: %d,%s\n ",__LINE__,__FUNCTION__);
+
                         Iframe_cnt = 1;
+
                     }
                 } else {
                     if (p->type == H264_TYPE_VIDEO && p->is_key_frame) {
+
+                              //  printf("\n =========page=============: %d,%s\n ",__LINE__,__FUNCTION__);
                         break;
                     }
                 }
                 if (p->type == H264_TYPE_VIDEO) {
+
+                            //  printf("\n =========page=============: %d,%s\n ",__LINE__,__FUNCTION__);
                     video_frame_count[i]--;
                 }
                 list_del(&p->entry);
@@ -598,7 +652,8 @@ int cloud_storage_video_write(int type, u8 is_key_frame, int timestamp, char *bu
     if (is_wait_iframe[i]) {
         first_I_timestamp[i] = timestamp;
     }
-
+  //  printf("\n len:%d\n",len);
+  //  printf("\n V\n");
     info = (CLOUD_MEDIA_INFO *)calloc(1, sizeof(CLOUD_MEDIA_INFO) + len); //lbuf内申请一块空间
     if (info) {
         info->type = type;
@@ -608,6 +663,9 @@ int cloud_storage_video_write(int type, u8 is_key_frame, int timestamp, char *bu
         info-> len = len;
         memcpy(&info->data[0], buffer, len);
         list_add_tail(&info->entry, &cloud_media_info_list_head[i]);
+
+          // printf("\n =========page=============: %d,%s\n ",__LINE__,__FUNCTION__);
+
     } else {
 #ifdef CLOUD_STORAGE_DEBUG
         ASSERT(0, "\n %s %d no mem \n", __func__, __LINE__);
@@ -652,7 +710,8 @@ int cloud_storage_audio_write(int type, int timestamp, char *buffer, int len, u8
         ASSERT(p->is_key_frame, "\n list_first_entry no I frame %s %d  \n", __func__, __LINE__);
     }
 #endif // CLOUD_STORAGE_DEBUG
-
+   // printf("\n alen:%d\n",len);
+  // printf("\n A\n");
     info = (CLOUD_MEDIA_INFO *)calloc(1, sizeof(CLOUD_MEDIA_INFO) + len); //lbuf内申请一块空间
     if (info) {
         info->type = type;
@@ -718,12 +777,14 @@ void cloud_storage_uploading(int uploading)
                     os_mutex_post(&cloud_media_info_list_mutex[i]);
                     break;
                 }
-                if (list_empty(&cloud_media_info_list_head[i]) || (cloud_storage_fps_cnt[i] >= db_select("cyc") * net_video_rec_get_fps())) { //查询LBUF内是否有数据帧
+                if (list_empty(&cloud_media_info_list_head[i]) || (cloud_storage_fps_cnt[i] >=  get_cloud_max_frame_cnt()) ){ //查询LBUF内是否有数据帧
                     os_mutex_post(&cloud_media_info_list_mutex[i]);
                     msleep(10);
                     continue;
                 }
                 list_for_each_entry_safe(p, n, &cloud_media_info_list_head[i], entry) {
+
+                  //  printf("\n a\n");
                     list_del(&p->entry);
                     break;
                 }
@@ -850,7 +911,7 @@ void cloud_storage_task(void *priv)
     avsdk_cs_set_log_level(LOG_LEVEL_NONE);
 
     while (1) {
-        printf("\n >>>>>>>>>>>>%s %d\n",__func__,__LINE__);
+        printf("\n >>>>>Y0>>>>>>>%s %d\n",__func__,__LINE__);
         ret = os_sem_pend(&cloud_storage_sem, 0);
         printf("\n >>>>>>>>>>>>%s %d\n",__func__,__LINE__);
         if (ret != OS_NO_ERR) {
@@ -886,6 +947,7 @@ void cloud_storage_task(void *priv)
                 uint8_t picture_num = CONFIG_CLOUD_STORAGE_NUM;
 #if (CONFIG_AUDIO_FORMAT_FOR_MIC == AUDIO_FORMAT_AAC)
 
+                 printf("\n >>>>>Y1>>>>>>>%s %d\n",__func__,__LINE__);
                 avsdk_cs_set_format_v2(cs_hdl, e_cs_encrypt_none, e_cs_stream_h264, net_video_rec_get_fps(),
                                        e_cs_stream_aac,
                                        e_cs_sound_frequeency_16000,

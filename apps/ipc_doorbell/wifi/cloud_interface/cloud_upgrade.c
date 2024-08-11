@@ -24,8 +24,9 @@
 #define JL_OTA_FIEE_NAME "JL_AC5X.bfu"
 #define HI3861L_OTA_FILE_NAME "Hi3861L_demo_ota.bin"
 #define DOORBELL_OTA_FILE_NAME "doorbell_ota.bin"
+#ifdef CONFIG_AC7016_ENABLE
 #define OTA_GT7016_FILE_NAME "update.ufw"
-
+#endif
 struct ota_file_head {
     char name1[64];
     int len1;
@@ -60,7 +61,7 @@ void enter_upgrade_ui(){
   video_standby_post_msg("upgrade_show");
 
 }
-#endif
+
 
 static u8 up_flag=0;
 u8 set_updrade_state(u8 state){
@@ -73,7 +74,7 @@ u8 get_updrade_state(){
     return up_flag;
 
 }
-
+#endif
 u8 get_sdcard_upgrade_status()
 {
     return sdcard_upgrade_status;
@@ -224,7 +225,7 @@ int get_update_data(const char *url, int notify, void *arg)
                         goto __exit;
                     }
                 }
-            #if 1
+            #ifdef  LONG_POWER_IPC
             sys_timeout_add(NULL, enter_upgrade_ui,3000);
             //
 
@@ -236,7 +237,6 @@ int get_update_data(const char *url, int notify, void *arg)
                 req.core.input.data.size = offset;
                 req.core.offset = data_offset;
                 error = server_request(upgrade_ser, UPGRADE_REQ_CORE_START, &req);
-                printf("\n s_error:%d\n",error);
                 if (error) {
                     log_e("upgrade core error : 0x%x\n", error);
                     goto __exit;
@@ -499,9 +499,7 @@ void sdcard_upgrade_thread(void *priv)
     int total_len;
     int upgrade_mode = -1;
     char name[128];
-    #if  0//def  LONG_POWER_IPC
-    int upgrade_total_len=0;
-    #endif
+
 
     buf = (u8 *)malloc(PER_RECV_SIZE);
     if (!buf) {
@@ -552,21 +550,10 @@ void sdcard_upgrade_thread(void *priv)
          * 开始升级
          */
         size = flen(fd);
-        #if 1
+        #ifdef  LONG_POWER_IPC
         sys_timeout_add(NULL, enter_upgrade_ui,3000);
-        //
-
-        #endif // 1
-        #if 0//def  LONG_POWER_IPC
-
-      //  server_ui_open();
-        extern void hide_standby_ui();
-        hide_standby_ui();
-        printf("\n  ui_upgrade>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
-       extern void show_upgrade_ui();
-        show_upgrade_ui();
-        upgrade_total_len=size;
         #endif
+
         do {
             req.core.type = UPGRADE_TYPE_BUF;
             req.core.input.data.buf = buf;
@@ -603,7 +590,7 @@ void sdcard_upgrade_thread(void *priv)
         int rlen;
         int total_len;
         total_len = size = flen(fd);
-        #if 1
+        #ifdef  LONG_POWER_IPC
         sys_timeout_add(NULL, enter_upgrade_ui,3000);
         //
 
@@ -697,7 +684,7 @@ void sdcard_upgrade_thread(void *priv)
          * 开始升级
          */
         size = head.len1;
-        #if 1
+        #ifdef  LONG_POWER_IPC
         sys_timeout_add(NULL, enter_upgrade_ui,3000);
         //
 
@@ -759,13 +746,13 @@ void sdcard_upgrade_thread(void *priv)
         }
         fdelete(fd);
     }
-    #ifdef CONFIG_AC7016_ENABLE
+    #ifdef  USER_UART_UPDATE_ENABLE
         extern  void dev_update_check_init(char *path_name);
         dev_update_check_init(OTA_GT7016_FILE_NAME);
-
+		printf("\n upgrade_mode===================%d\n ",upgrade_mode);
     #endif
 
-    printf("\n upgrade_mode===================%d\n ",upgrade_mode);
+
     if (upgrade_mode != -1) {
         printf("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>HI_CHANNEL_CMD_RESET_SET\n");
 
@@ -824,9 +811,10 @@ int sdcard_upgrade_init(void)
     return 0;
 __exit:
     fclose(fd);
-
+#ifdef LONG_POWER_IPC
     set_updrade_state(1);
     doorbell_stop_rec();//不允许录像
+#endif
     thread_fork("sdcard_upgrade_thread", 18, 0x1000, 0, 0, sdcard_upgrade_thread, NULL);
     return -1;
 }
