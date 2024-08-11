@@ -70,8 +70,15 @@ static isp_iq_params_t sc2336p_mipi_iq_params = {
         0, 0, 1, 15, 15
     },
     .cnr =   {0, 255, 78},
+    #if  0
     .md_wms = {100, 130, 180, 250, 400},
     .md_level = 3,
+    #else
+
+    .md_wms = {20, 30, 40, 50, 60},
+    .md_level = 1,
+
+    #endif
 };
 
 void *sc2336p_mipi_get_iq_params()
