@@ -117,6 +117,7 @@ void light_adc_value_check(void *priv)
     static int night_cnt, day_cnt;
     static int is_night = 0;//0:表示白天 ：1表示黑夜
     static int night_state;
+    static int vm_ircut_state_=0;// 保存 ircut 状态
     if (ircut_get_isp_scenes_flag()) {
         return;
     }
@@ -137,7 +138,11 @@ void light_adc_value_check(void *priv)
 
      if(get_ntc_voltage()<350){ //防止频繁切换
 
-        return ;
+     if(db_select("ircut")==vm_ircut_state_){
+
+         return ;
+
+        }
      }
     }
     if (get_ntc_voltage() <= 300) {
@@ -187,6 +192,7 @@ void light_adc_value_check(void *priv)
     if (ircut == 1) {
         if (ircut_status != IRCUT_ON) {
             ircut_status = IRCUT_ON;
+            vm_ircut_state_=ircut;
             post_msg_doorbell_task("doorbell_event_task", 1, DOORBELL_EVENT_IRCUT_ON);
         }
     } else if (ircut == 2) {
@@ -196,14 +202,17 @@ void light_adc_value_check(void *priv)
         }
         if ((get_isp_effect_state()!=get_pre_isp_effect_state())||is_night==1) {
             ircut_status = IRCUT_OFF;
+            vm_ircut_state_=ircut;
             post_msg_doorbell_task("doorbell_event_task", 1, DOORBELL_EVENT_IRCUT_OFF);
         }
     } else if (ircut == 3) {
         if (ircut_status != IRCUT_ON && is_night == 1) {
             ircut_status = IRCUT_ON;
+            vm_ircut_state_=ircut;
             post_msg_doorbell_task("doorbell_event_task", 1, DOORBELL_EVENT_IRCUT_ON);
         } else if ( ( is_night == 0)&&(get_isp_effect_state()!=get_pre_isp_effect_state()) ){
             ircut_status = IRCUT_OFF;
+            vm_ircut_state_=ircut;
             post_msg_doorbell_task("doorbell_event_task", 1, DOORBELL_EVENT_IRCUT_OFF);
         }
     }

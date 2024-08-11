@@ -69,7 +69,7 @@ void avsdk_wifi_sta_mode_info(char *ssid, char *pwd)
 
 
 }
-static int doorbell_rec_timer_check_id;
+static int doorbell_rec_timer_check_id=0;
 extern bool judge_plan_video_timer();
 void doorbell_rec_timer_check(){
 
@@ -97,6 +97,7 @@ void doorbell_rec_timer_check(){
 void doorbell_rec_check_timer_add(void)
 {
     if (!doorbell_rec_timer_check_id) {
+        printf("\n doorbell_rec_check_timer_add\n  ");
         doorbell_rec_timer_check_id = sys_timer_add_to_task("sys_timer", NULL, doorbell_rec_timer_check, 1000*50);
     }
 }
@@ -133,23 +134,6 @@ int get_picture_md5_crc( char *ibuf,char *obuf,int len){
     return 1;
 }
 
-void test_function(){
-
-       sys_key_event_disable();
-                 printf("\n DOORBELL_EVENT_ENTER_RESET_CPU\n");
-                   wifi_off();
-                   extern void net_config_before(void);
-                    net_config_before();
-                    set_poweron_net_config_state(0);// 设置重新配网标志
-
-                    printf("\n wifi offs\n");
-
-                 //   post_msg_doorbell_task("doorbell_event_task", 2, DOORBELL_EVENT_PLAY_VOICE, "NetCfgEnter.adp");=
-                    os_time_dly(100);
-                    cpu_reset();
-
-
-}
 
 void doorbell_event_task(void *priv)
 {
@@ -277,18 +261,20 @@ void doorbell_event_task(void *priv)
                     //如果在录像就需要停止录像
                     doorbell_stop_rec();
 
-                    #ifdef LONG_POWER_IPC
-                   // doorbell_open_all_rt_stream();
+                  
 
+                    #ifndef LONG_POWER_IPC
+                    os_taskq_post("hi_channel_task", 2, HI_CHANNEL_CMD_RESET_SET, msg[2]);
+					
+					#else
+					
                     void net_config_before(void);
                      net_config_before();
                      avsdk_unbind();
                      avsdk_fini();
                      post_msg_doorbell_task("doorbell_event_task", 1, DOORBELL_EVENT_ENTER_CLEAR_SYSTEM);
-                    #endif
-
-                    #ifndef LONG_POWER_IPC
-                    os_taskq_post("hi_channel_task", 2, HI_CHANNEL_CMD_RESET_SET, msg[2]);
+                   
+					
                     #endif
 
 
@@ -300,14 +286,23 @@ void doorbell_event_task(void *priv)
                     os_taskq_post("hi_channel_task", 1, HI_CHANNEL_CMD_AP_CHANGE_STA);
                     break;
                 case DOORBELL_EVENT_PIR_STATUS_GET:
+
+                    #ifndef LONG_POWER_IPC
                     doorbell_stop_rec();
                     extern u8 is_pir_wakeup_status();
                     if (is_pir_wakeup_status()) {
                         os_taskq_post("hi_channel_task", 1, HI_CHANNEL_CMD_GET_PIR);
                     } else {
+
+                        printf("\n  set_system_running \n");
                         extern void set_system_running(u8 value);
                         set_system_running(0);
                     }
+                    #else
+                        printf("\n  set_system_running \n");
+                        extern void set_system_running(u8 value);
+                        set_system_running(0);
+                    #endif
                     break;
                 case DOORBELL_EVENT_ALL_REOPEN_RT_STREAM:
                     doorbell_close_all_rt_stream();
@@ -344,13 +339,13 @@ void doorbell_event_task(void *priv)
                     cpu_reset();
 
                     break;
-                #if 1
+       
                 case DOORBELL_EVENT_ENTER_CLEAR_SYSTEM: // 清设备
 
                     sys_key_event_disable();
                     printf("\n DOORBELL_EVENT_ENTER_CLEAR_SYSTEM\n");
                     set_poweron_net_config_state(0);// 设置重新配网标志
-                    set_cpu_reset_state(1);// 清设备信息标志
+                 //   set_cpu_reset_state(1);// 清设备信息标志
                     printf("\n wifi offs\n");
                   //  if(get_poweron_net_config_state()!=0){
 
@@ -362,7 +357,7 @@ void doorbell_event_task(void *priv)
                     os_time_dly(200);
 
                     cpu_reset();
-                #endif
+             
                     break;
 
                 case DOORBELL_EVENT_ENTER_NET_CONFIG_MODE:
@@ -374,8 +369,7 @@ void doorbell_event_task(void *priv)
                     if(get_poweron_net_config_state()==0){
 
 
-                     set_poweron_net_config_state(0);
-
+                    // set_poweron_net_config_state(0);
 
                     extern void doorbell_app_deal_network_status(int status);
                     doorbell_app_deal_network_status(NETWORK_CONFIG);
@@ -486,7 +480,7 @@ void doorbell_event_task(void *priv)
                     break;
                   case DOORBELL_EVENT_ENTER_CHECK_TIMER_REC:
 
-                    puts(" \n CHECK_TIMER DOORBELL_EVENT_START_REC\n");
+                    puts(" \n DOORBELL_EVENT_ENTER_CHECK_TIMER_REC \n");
                         printf("\n get_poweron_net_config_state()8=================%d,%d\n",get_poweron_net_config_state(),get_cpu_reset_state());
 
                     doorbell_rec_check_timer_add();

@@ -89,7 +89,9 @@ void net_set_phone_status(u8 status)
     data[1] = status;
     cdc_write_data(data,sizeof(data));
 }
-#if  1
+#ifdef LONG_POWER_IPC
+
+
 /*
 typedef struct {
     u8 cmd;
@@ -136,101 +138,6 @@ int mapAppVolumeToDeviceVolume(int appVolume) {
 
 #endif
 
-#if 0
-
-
-// 设备音量到app音量的映射表（查找表）
-int deviceToAppMap[15] = {
-    0,  // 设备音量 0 映射到 app 音量 0
-    0,  // 设备音量 1 映射到 app 音量 0（或1，取决于具体映射策略）
-    1,  // 设备音量 2 映射到 app 音量 1
-    1,  // 设备音量 3 映射到 app 音量 1
-    2,  // 设备音量 4 映射到 app 音量 2
-    2,  // 设备音量 5 映射到 app 音量 2
-    3,  // 设备音量 6 映射到 app 音量 3
-    3,  // 设备音量 7 映射到 app 音量 3
-    4,  // 设备音量 8 映射到 app 音量 4
-    5,  // 设备音量 9 映射到 app 音量 5
-    6,  // 设备音量 10 映射到 app 音量 6
-    7,  // 设备音量 11 映射到 app 音量 7
-    8,  // 设备音量 12 映射到 app 音量 8
-    9,  // 设备音量 13 映射到 app 音量 9
-    10  // 设备音量 14 映射到 app 音量 10
-};
-
-// app音量到设备音量的反向映射表
-int appToDeviceMap[11] = {
-    0,  // app音量 0 映射回 设备音量 0
-    2,  // app音量 1 映射回 设备音量 2
-    4,  // app音量 2 映射回 设备音量 4
-    6,  // app音量 3 映射回 设备音量 6
-    8,  // app音量 4 映射回 设备音量 8
-    9,  // app音量 5 映射回 设备音量 9
-    10,  // app音量 6 映射回 设备音量 10
-    11,  // app音量 7 映射回 设备音量 11
-    12,  // app音量 8 映射回 设备音量 12
-    13,  // app音量 9 映射回 设备音量 13
-    14,  // app音量 10 映射回 设备音量 14
-
-    // ... 需要根据deviceToAppMap反向计算填充
-    // 注意：这里需要根据deviceToAppMap来确保映射是可逆的
-};
-
-// 初始化反向映射表
-void initReverseMap() {
-    for (int i = 0; i < 15; ++i) {
-        int appVolume = deviceToAppMap[i];
-        if (appToDeviceMap[appVolume] == 0) { // 确保不覆盖已存在的映射
-            appToDeviceMap[appVolume] = i;
-        }
-    }
-}
-
-// 将设备音量映射到app音量
-int mapDeviceVolumeToAppVolume(int deviceVolume) {
-    if (deviceVolume < 0 || deviceVolume > 14) {
-        return -1; // 输入无效
-    }
-    return deviceToAppMap[deviceVolume];
-}
-
-// 将app音量映射回设备音量
-int mapAppVolumeToDeviceVolume(int appVolume) {
-    if (appVolume < 0 || appVolume > 10) {
-        return -1; // 输入无效
-    }
-    return appToDeviceMap[appVolume];
-}
-
-int test_map() {
-    // 初始化反向映射表
-    initReverseMap();
-
-    // 示例：将设备音量映射到app音量，然后再映射回设备音量
-    for (int deviceVolume = 0; deviceVolume <= 14; ++deviceVolume) {
-        int appVolume = mapDeviceVolumeToAppVolume(deviceVolume);
-        if (appVolume != -1) {
-            printf("设备音量 %d 对应的 app 音量是 %d\n", deviceVolume, appVolume);
-
-            // 再将app音量映射回设备音量
-            int mappedDeviceVolume = mapAppVolumeToDeviceVolume(appVolume);
-            if (mappedDeviceVolume != -1) {
-                printf("app 音量 %d 映射回的设备音量是 %d\n", appVolume, mappedDeviceVolume);
-                // 由于使用了查找表，mappedDeviceVolume 应该总是等于 deviceVolume
-            } else {
-                printf("映射app音量时出错\n");
-            }
-        } else {
-            printf("输入的设备音量值无效\n");
-        }
-    }
-
-    return 0;
-}
-
-
-#endif // 0
-
 
 static int cdc_host_cmd_deal(u8 *buf,int buf_len)
 {
@@ -240,13 +147,13 @@ static int cdc_host_cmd_deal(u8 *buf,int buf_len)
     CMD_INFO *info = (CMD_INFO *)buf;
     u8 cmd = info->cmd;
     printf("\n >>>>>>>>>>>>>>>>cmd = 0x%x\n",cmd);
-
+#ifdef LONG_POWER_IPC
     if(cmd==HUANG_XING_CI){ //唤醒词
 
     post_msg_doorbell_task("doorbell_event_task", 2, DOORBELL_EVENT_PLAY_VOICE, "rec.adp");
 
     }
-
+#endif
 
     if(cmd != GUANG_BI_PING_MU){
         //打开屏幕
@@ -283,13 +190,16 @@ static int cdc_host_cmd_deal(u8 *buf,int buf_len)
         //播放音乐
         break;
     case ZHENG_JIA_YIN_LIANG:
-       // ac7016_volume += 5;
+	#ifndef LONG_POWER_IPC
+        ac7016_volume += 5;
+	#else
         ac7016_volume += 2;
         if(ac7016_volume>=14){//主机音量最大限制10, 从机音量最大14
 
 
         ac7016_volume=14;
         }
+    #endif
         u8 data[2];
         printf("\n >>>>>>>>>ZHENG_JIA_YIN_LIANG_ac7016_volume = %d\n",ac7016_volume);
 
@@ -303,10 +213,11 @@ static int cdc_host_cmd_deal(u8 *buf,int buf_len)
         cdc_write_data(data,sizeof(data));
         break;
     case JIANG_DI_YIN_LIANG:
+	#ifndef LONG_POWER_IPC
 
-
-        ac7016_volume -= 2;
-
+        ac7016_volume -= 5;
+	#else
+		 ac7016_volume -= 2;
         printf("\n  ac7016_volume::::%d\n",ac7016_volume);
 
        // ac7016_volume -= 1;
@@ -315,6 +226,7 @@ static int cdc_host_cmd_deal(u8 *buf,int buf_len)
 
         ac7016_volume=0;
         }
+     #endif
         printf("\n >>>>>>>>>JIANG_DI_YIN_LIANG_ac7016_volume = %d\n",ac7016_volume);
         data[0] = SET_VOLUME;
         data[1] = ac7016_volume;
@@ -368,6 +280,7 @@ static int cdc_host_cmd_deal(u8 *buf,int buf_len)
     case GET_VOLUME:
         ac7016_volume = (u8 *)info->data[0];
 
+		#ifdef LONG_POWER_IPC
         printf("\n GET_SALVE_VOLUME>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ac7016_volume = %d\n",ac7016_volume);
 
 
@@ -382,78 +295,7 @@ static int cdc_host_cmd_deal(u8 *buf,int buf_len)
 
         }
 
-      //  mapDeviceVolumeToAppVolume(ac7016_volume);
-
-        #if  0
-//       // mapDeviceVolumeToAppVolume();
-
-        for(int dev=0;dev<=14;dev++){
-
-
-
-         int app_vol=mapDeviceVolumeToAppVolume(dev);
-         int dev_vol=mapAppVolumeToDeviceVolume(app_vol);
-
-
-         printf("\n  dev_vol::::%d,app_vol:%d\n",dev_vol,app_vol);
-
-         }
-
-
-
-
-    printf("\n zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz\n");
-        for(int app=0;app<=10;app++){
-
-
-          int dev_vol=mapAppVolumeToDeviceVolume(app);
-         int app_vol=mapDeviceVolumeToAppVolume(dev_vol);
-
-
-
-         printf("\n  dev_vol::::%d,app_vol:%d\n",dev_vol,app_vol);
-
-         }
-
-       // test_map();
-        #endif
-
-        #if 0
-
-        if(ac7016_volume>10){
-
-        ac7016_volume-=4;
-
-        }else{
-
-
-        }
-
-        #endif // 0
-
-
-
-//        if(db_select("vol")==ac7016_volume){    /0-10   0-14    10-14(7-10)
-//
-//
-//        }else{ //如果不一样
-//
-//           if(!ac7016_volume){
-//
-//            }else{
-//
-//            if( ac7016_volume<4){
-//            ac7016_volume+=3;
-//            }
-//            ac7016_volume-=2;
-//
-//
-//            }
-//          db_update("vol", ac7016_volume);
-//          db_flush();
-//        }
-
-
+		#endif
         printf("\n GET>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ac7016_volume = %d\n",ac7016_volume);
         break;
     case RECV_BLE_DATA:
@@ -699,7 +541,7 @@ int set_7016_ble_off(void)
     return 0;
 }
 
-
+#ifdef LONG_POWER_IPC
 int set_7016_ble_name_on(){
 
 
@@ -713,7 +555,7 @@ int set_7016_ble_name_on(){
 
 
 }
-
+#endif
 int cdc_host_init(void)
 {
 
@@ -725,24 +567,30 @@ int cdc_host_init(void)
     data[0] = GET_VOLUME;
     data[1] = 0;
     cdc_write_data(data,sizeof(data));
+#ifndef LONG_POWER_IPC
+    char ssid[20] = {0};
+    char pass[20] = {0};
+    avsdk_get_wifi_conf(ssid, pass);
+    printf("\n >>>>>>>>>>>>>>>>>>>>>ble name=%s\n", ssid);
+
+    set_7016_ble_name(ssid);
+
+#else
+
    if(get_poweron_net_config_state()==0){ //配网模式下  打开蓝牙
     char ssid[20] = {0};
     char pass[20] = {0};
     avsdk_get_wifi_conf(ssid, pass);
     printf("\n >>>>>>>>>>>>>>>>>>>>>netconfig ble name=%s\n", ssid);
-#if  1
-   // set_7016_ble_name(ssid);
    if(cdc_dev){
     printf("\n cdc open ok\n");
     sys_timeout_add(NULL,set_7016_ble_name_on , 2000);
     }
-#else
 
-    set_7016_ble_name(ssid);
-
-#endif
 
    }
+#endif
+
     return cdc_dev ? 0 : -1;
 }
 int cdc_host_uninit(void)

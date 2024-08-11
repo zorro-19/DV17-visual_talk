@@ -63,6 +63,7 @@ void add_audio_play_info(int conn_id)
     os_mutex_pend(&rt_talk_info_head_mutex,0);
 
     if(list_empty(&rt_talk_info_list_head)){
+            printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
          info = find_empty_rt_talk_info();
         if(info){
            info->conn_id = conn_id;
@@ -74,6 +75,7 @@ void add_audio_play_info(int conn_id)
             list_for_each_entry_safe(p, n,  &rt_talk_info_list_head, entry) {
                 if(p->conn_id == conn_id){
                     find = 1;
+            printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
                     break;
                 }
             }
@@ -85,6 +87,7 @@ void add_audio_play_info(int conn_id)
                    info->conn_id = conn_id;
                    info->app_audio_play = 1;
                    list_add_tail(&info->entry,  &rt_talk_info_list_head);
+                    printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
                 }
             }
     }
@@ -98,7 +101,9 @@ void del_audio_play_info(int conn_id)
     os_mutex_pend(&rt_talk_info_head_mutex,0);
 
     if(list_empty(&rt_talk_info_list_head)){
+               printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
         os_mutex_post(&rt_talk_info_head_mutex);
+
         return;
     }
 
@@ -106,6 +111,7 @@ void del_audio_play_info(int conn_id)
         RT_TALK_INFO *p = NULL,*n = NULL;
         list_for_each_entry_safe(p, n,  &rt_talk_info_list_head, entry) {
             if(p->conn_id == conn_id){
+                   printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
                 find = 1;
                 break;
             }
@@ -115,6 +121,7 @@ void del_audio_play_info(int conn_id)
             if(!p->app_audio_play && !p->app_video_play && !p->device_video_play ){
                 list_del(&p->entry);
                 free_used_rt_talk_info(p);
+                   printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
             }
         }
     }
@@ -130,6 +137,7 @@ u8 find_audio_play_info(void)
 
     if(list_empty(&rt_talk_info_list_head)){
         os_mutex_post(&rt_talk_info_head_mutex);
+           printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
         return 0;
     }
 
@@ -138,6 +146,7 @@ u8 find_audio_play_info(void)
         list_for_each_entry_safe(p, n,  &rt_talk_info_list_head, entry) {
             if(p->app_audio_play){
                 find = 1;
+               printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
                 break;
             }
         }
@@ -165,6 +174,7 @@ void add_video_play_info(int conn_id)
            info->conn_id = conn_id;
            info->app_video_play = 1;
            list_add_tail(&info->entry,  &rt_talk_info_list_head);
+              printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
         }
     }else{
           printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
@@ -184,6 +194,7 @@ void add_video_play_info(int conn_id)
                    info->conn_id = conn_id;
                    info->app_video_play = 1;
                    list_add_tail(&info->entry,  &rt_talk_info_list_head);
+                      printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
                 }
             }
     }
@@ -214,6 +225,7 @@ void del_video_play_info(int conn_id)
             if(!p->app_audio_play && !p->app_video_play && !p->device_video_play ){
                 list_del(&p->entry);
                 free_used_rt_talk_info(p);
+                   printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
             }
         }
     }
@@ -229,6 +241,7 @@ u8 find_video_play_info(void)
 
     if(list_empty(&rt_talk_info_list_head)){
         os_mutex_post(&rt_talk_info_head_mutex);
+        printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
         return 0;
     }
 
@@ -237,6 +250,7 @@ u8 find_video_play_info(void)
         list_for_each_entry_safe(p, n,  &rt_talk_info_list_head, entry) {
             if(p->app_video_play){
                 find = 1;
+                printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
                 break;
             }
         }
@@ -254,14 +268,16 @@ void add_device_video_play_info(int conn_id,int ch)
     os_mutex_pend(&rt_talk_info_head_mutex,0);
   printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
     if(list_empty(&rt_talk_info_list_head)){
-              printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
+
          info = find_empty_rt_talk_info();
+          printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
         if(info){
-              printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
+
            info->conn_id = conn_id;
            info->device_video_play = 1;
            info->device_video_play_ch = ch;
            list_add_tail(&info->entry,  &rt_talk_info_list_head);
+           printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
         }
       printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
     }else{
@@ -270,21 +286,24 @@ void add_device_video_play_info(int conn_id,int ch)
             list_for_each_entry_safe(p, n,  &rt_talk_info_list_head, entry) {
                 if(p->conn_id == conn_id){
                     find = 1;
+                    printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
                     break;
                 }
             }
             if(find){
-                      printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
+
                p->device_video_play = 1;
                p->device_video_play_ch = ch;
+                 printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
             }else{
                  info = find_empty_rt_talk_info();
                 if(info){
-                      printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
+
                    info->conn_id = conn_id;
                    info->device_video_play = 1;
                    info->device_video_play_ch = ch;
                    list_add_tail(&info->entry,  &rt_talk_info_list_head);
+                   printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
                 }
             }
     }
@@ -309,6 +328,7 @@ void del_device_video_play_info(int conn_id)
         list_for_each_entry_safe(p, n,  &rt_talk_info_list_head, entry) {
             if(p->conn_id == conn_id){
                 find = 1;
+                printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
                 break;
             }
         }
@@ -317,6 +337,7 @@ void del_device_video_play_info(int conn_id)
             if(!p->app_audio_play && !p->app_video_play && !p->device_video_play ){
                 list_del(&p->entry);
                 free_used_rt_talk_info(p);
+                printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
             }
         }
     }
@@ -333,6 +354,8 @@ u8 find_device_video_play_info(RT_TALK_INFO  *tmp)
 
     if(list_empty(&rt_talk_info_list_head)){
         os_mutex_post(&rt_talk_info_head_mutex);
+
+        printf("\n >>>>>>>>>>>%s %d\n",__func__,__LINE__);
         return 0;
     }
 
@@ -341,7 +364,9 @@ u8 find_device_video_play_info(RT_TALK_INFO  *tmp)
         list_for_each_entry_safe(p, n,  &rt_talk_info_list_head, entry) {
             memcpy(tmp,p,sizeof(RT_TALK_INFO));
             if(p->device_video_play){
+
                 find = 1;
+                printf("\n talk_video_list_is_ok\n");
               #if 0
 			    tmp->conn_id = p->conn_id;
                 tmp->device_video_play_ch = p->device_video_play_ch;
@@ -1020,6 +1045,8 @@ void doorbell_app_deal_wakeup_source(int status,void *user)
     if (is_product_mode()) {
         goto __exit;
     }
+
+    printf("\n status:%d\n ",status);
     if (status == INIT_WAKEUP) {
         set_wakeup_status(status,user);
     } else if (status == NETWORK_WAKEUP) {
@@ -1030,7 +1057,7 @@ void doorbell_app_deal_wakeup_source(int status,void *user)
             if (need_notify_wakeup_status()) {
               //  post_msg_doorbell_task("doorbell_event_task", 2, DOORBELL_EVENT_PLAY_VOICE, "dingdong.adp");
                 post_msg_doorbell_task("doorbell_event_task", 2, DOORBELL_EVENT_PLAY_VOICE, "start_call.adp");
-              
+
                 extern void doorbell_433_ctrl(void);
                 doorbell_433_ctrl();
             }
@@ -1054,6 +1081,10 @@ void doorbell_app_deal_wakeup_source(int status,void *user)
         post_msg_doorbell_task("doorbell_event_task", 2, DOORBELL_EVENT_PLAY_VOICE, "alarm.adp");
     } else if (status == LOWPOWER_WAKEUP) {
         post_msg_doorbell_task("doorbell_event_task", 2, DOORBELL_EVENT_PLAY_VOICE, "LowBattery.adp");
+        set_wakeup_status(status,user);
+    }else if (status == MOVT_WAKEUP) {
+
+         printf("\n MOVT_WAKEUP\n ");
         set_wakeup_status(status,user);
     }
 __exit:
